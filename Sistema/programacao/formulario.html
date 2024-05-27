@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>        
+    
+    
+    </style>
+</head>
+<body>
+    <label for="estagio111">Selecione tipo do estágio</label>
+    <select name="estagio111" id="estagio111">
+        <option value="" selected>Selecione uma opção</option>
+        <option value="OR">Obrigatório Remunerado</option>
+        <option value="ONR">Obrigatório Não Remunerado</option>
+    </select>
+    <button onclick="obterValorSelect()"> Exibir formulário</button>
+    <div class="formgeral"></div>
+    
+    <script>
+        function obterValorSelect()
+        {
+            var select=document.getElementById("estagio111").value
+            if (select=="ONR"){
+                window.location.href = "formONR.html"
+                
+                
+            } else{
+                window.location.href = "formOR.html"
+            }
+            
+        }
+    </script>
+
+
+
+</body>
+</html>
