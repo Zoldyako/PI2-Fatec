@@ -435,7 +435,7 @@ conteudo = 1000?
 <body>
     <div class="linhacabecalho">
         <div class="nd">
-<img src="../marcadagua1.png" alt="">
+<img src="../marcadagua1.png" alt="" id="minhaimagem">
 <img src="../marcadagua2.png" alt=""></div>
 <h1>Fatec de Itapira “Ogari de Castro Pacheco”</h1>
 <h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: 9pt;color: black;margin-bottom: 30px;">Curso Superior de Tecnologia em Desenvolvimento de Software Multiplataforma</h1>
@@ -455,7 +455,7 @@ conteudo = 1000?
 <div class="rodape">
     <h2>www.fatecitapira.edu.br</h2>
     <h3>Rua Tereza Lera Paoleti, 590  •  Jardim Bela Vista  •  13.974-080  •  Itapira  •  SP  •  Tel.: (19) 3843.1996</h3>
-</div>
+</div><br><br><br><br><br>
 <div class="linhacabecalho">
     <div class="nd">
 <img src="../marcadagua1.png" alt="">
@@ -644,7 +644,25 @@ conteudo = 1000?
 
 
             document.body.innerHTML = html;
-            print()
+            var imagem = document.getElementById('minhaimagem');
+
+// Define o que fazer quando a imagem é carregada
+imagem.onload = function() {
+    // Agora a imagem está carregada e pode ser manipulada
+    console.log('A imagem foi carregada.');
+
+    // Chama a função para imprimir após o carregamento da imagem
+    window.print();
+};
+
+// Define o que fazer se houver um erro no carregamento da imagem
+imagem.onerror = function() {
+    console.error('Erro ao carregar a imagem.');
+};
+
+// Atualiza a origem da imagem para iniciar o carregamento
+imagem.src = "../marcadagua1.png";
+            
 
 
 
@@ -652,6 +670,7 @@ conteudo = 1000?
 
 
         }
+        
        
     </script>
 
