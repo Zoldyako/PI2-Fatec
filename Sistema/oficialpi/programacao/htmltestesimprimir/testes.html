@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preencher dados - Obrigatório não remunerado</title>
+</head>
+<body>
+    <form id ="myForm" onsubmit="getData(event)" >
+        <!-- nomeempresa, cnpj, endereco da empresa, nome representante + cargo, cpf do representante, nome do estagiario , rg do estagiario
+        endereco do estagiario , cidade do estagiario -->
+        <label for="nomeempresa">Nome da empresa:</label>
+        <input type="text" name="nomeempresa" id="nomeempresa">
+
+        <label for="cnpj">Cnpj:</label>
+        <input type="text" name="cnpj" id="cnpj">
+        
+        <label for="enderecoempresa">Endereço empresa:</label>
+        <input type="text" name="enderecoempresa" id="enderecoempresa">
+        
+        <label for="nomerepresentante">Nome representante:</label>
+        <input type="text" name="nomerepresentante" id="nomerepresentante">
+
+        <label for="representantecargo">Cargo do representante:</label>
+        <input type="text" name="representantecargo" id="representantecargo">
+
+        <label for="cpfrepresentante">CPF do representante:</label>
+        <input type="text" name="cpfrepresentante" id="cpfrepresentante">
+        
+        <label for="nomeestagiario">Nome do estagiário:</label>
+        <input type="text" name="nomeestagiario" id="nomeestagiario">
+        
+        <label for="rgestagiario">RG do estagiário:</label>
+        <input type="text" name="rgestagiario" id="rgestagiario">
+        
+        <label for="enderecoestagiario">Endereço do estagiário:</label>
+        <input type="text" name="enderecoestagiario" id="enderecoestagiario">
+        
+        <label for="cidadeestagiario">Cidade do estagiário:</label>
+        <input type="text" name="cidadeestagiario" id="cidadeestagiario">
+        
+        <label for="horarioentrada">Horário entrada:</label>
+        <input type="time" name="horarioentrada" id="horarioentrada">
+        
+        <label for="horariosaida">Horário saida:</label>
+        <input type="time" name="horariosaida" id="horariosaida">
+
+        <label for="entradarefeicao">Entrada do horário de refeição:</label>
+        <input type="time" name="entradarefeicao" id="entradarefeicao">
+
+        <label for="saidarefeicao">Saida do horário de refeição:</label>
+        <input type="time" name="saidarefeicao" id="saidarefeicao">
+
+        <label for="horassemanais">Horas totais semanais:</label>
+        <input type="number" name="horassemanais" id="horassemanais">
+
+        <label for="comeco">Data do começo do estágio:</label>
+        <input type="date" name="comeco" id="comeco">
+        
+        <label for="fim">Data do fim do estágio:</label>
+        <input type="date" name="fim" id="fim">
+
+        <label for="numeroapolice">Número da apólice:</label>
+        <input type="text" name="numeroapolice" id="numeroapolice">
+
+        <label for="nomeseguradora">Nome da seguradora:</label>
+        <input type="text" name="nomeseguradora" id="nomeseguradora">
+
+        <input type="submit" value="Enviar">
+
+    </form>
+    
+
+
+
+    <script>
+        function getData(event){
+            event.preventDefault();
+            var nomeempresa = document.getElementById("nomeempresa").value;
+            var cnpj = document.getElementById("cnpj").value;
+            var enderecoempresa = document.getElementById("enderecoempresa").value;
+            var nomerepresentante = document.getElementById("nomerepresentante").value;
+            var cargorepresentante = document.getElementById("representantecargo").value;
+            var cpfrepresentante = document.getElementById("cpfrepresentante").value;
+            var nomeestagiario = document.getElementById("nomeestagiario").value;
+            var rgestagiario = document.getElementById("rgestagiario").value;
+            var enderecoestagiario = document.getElementById("enderecoestagiario").value;
+            var cidadeestagiario = document.getElementById("cidadeestagiario").value;
+            var horarioentrada = document.getElementById("horarioentrada").value;
+            var horariosaida = document.getElementById("horariosaida").value;
+            var entradarefeicao = document.getElementById("entradarefeicao").value;
+            var saidarefeicao = document.getElementById("saidarefeicao").value;
+            var horassemanais = document.getElementById("horassemanais").value;
+            var comeco = document.getElementById("comeco").value;
+            var formatar = String(comeco).split("-")
+            comeco = formatar[2]+"/"+formatar[1]+"/"+formatar[0];
+            var fim = document.getElementById("fim").value;
+            formatar = String(fim).split("-")
+            fim = formatar[2]+"/"+formatar[1]+"/"+formatar[0];
+            var numeroapolice = document.getElementById("numeroapolice").value;
+            var nomeseguradora = document.getElementById("nomeseguradora").value;
+            alert(nomeempresa+" "+cnpj+" "+ enderecoempresa+" "+entradarefeicao+" "+comeco+" "+fim)
+
+        }
+    </script>
+</body>
+</html>
