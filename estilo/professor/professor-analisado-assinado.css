@@ -1,0 +1,15 @@
+.documento {
+    display: flex;
+    background-color: rgb(214, 182, 182);
+    margin: 16px 0;
+    padding: 8px;
+}
+
+.documento p {
+    margin-right: 8px;
+}
+
+
+.documento input {
+    margin-right: 8px;
+}
