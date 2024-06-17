@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="../../estilo/fonts.css">
     <link rel="stylesheet" href="../../estilo/professor/professor.css">
     <link rel="stylesheet" href="../../estilo/style.css">
+    <link rel="stylesheet" href="../../estilo/nav-bar.css">
     <link rel="stylesheet" href="../../estilo/side-bar.css">
     <title>Página do Professor <?php echo $linha['nome']?></title>
 </head> 
