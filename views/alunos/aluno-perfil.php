@@ -104,19 +104,19 @@
         var select=document.getElementById("estagio-opcoes").value
 
         if (select=="ONR"){
-            window.location.href = "formONR.html"
+            window.location.href = "../form/formONR.php"
     
         } else if (select == "OR"){
-            window.location.href = "formOR.html"
+            window.location.href = "../form/formOR.php"
         
         } else if (select == "RP"){
-            window.location.href = "formRP.html"
+            window.location.href = "../form/formRP.php"
         
         } else if (select == "RF"){
-            window.location.href = "formRF.html"
+            window.location.href = "../form/formRF.php"
         
         } else if(select == "TR"){
-            window.location.href = "formTR.html"
+            window.location.href = "../form/formTR.php"
         
         } else{
             alert("Selecione uma opção válida")

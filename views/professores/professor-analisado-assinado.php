@@ -66,7 +66,7 @@
                     echo '              </select>   ';
                     echo '              <label for="nomefiltro">Filtrar por nome:</label>';
                     echo '              <input type="text" name="nomefiltro" id="nomefiltro">';
-                    echo '              <input type="submit" value="Filtrar">';
+                    echo '              <input type="submit" value="Filtrar" id="filtrar-btn">';
                     echo '          </form>';
                 
                 } elseif ($_POST['filtro'] == 'null') {
@@ -275,7 +275,7 @@
                 
                     <form action="../../funcoes/mostrar-pdf.php" method="post" target="_blank">
                         <input type="hidden" name="id_documento" value="<?php echo $linha['id']?>">
-                        <input type="submit" value="documento">
+                        <input type="submit" value="documento" id="doc-btn">
                     </form>
                     <p><?php echo $linha['status']?> </p>
                 </div>
