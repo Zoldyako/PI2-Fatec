@@ -7,215 +7,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../estilo/nav-bar.css">
+    <link rel="stylesheet" href="../../estilo/side-bar.css">
+    <link rel="stylesheet" href="../../estilo/style.css">
+    <link rel="stylesheet" href="../../estilo/form/formONR.css">
     <title>Document</title>
 </head>
 <body>
-    <form action="gravardadosNOR.php" method="post" id="formulario">
-        <input type="hidden" name="nomedocumento" value="Estágio obrigatório não-remunerado">
-        <input type="hidden" name="id_aluno" value="<?php echo $idaluno?>">
-        <div class="empresa">
-            <label for="nomeempresa">Nome da empresa:</label>
-            <input type="text" name="nomeempresa" id="nomeempresa">
-
-            <label for="cnpj">Cnpj:</label>
-            <input type="text" name="cnpj" id="cnpj">
-
-            <label for="departamento">Divisão ou Departamento:</label>
-            <input type="text" name="departamento" id="departamento">
-
-            <label for="emailempresa">Email da empresa:</label>
-            <input type="email" name="emailempresa" id="emailempresa">
-            
-            <label for="enderecoempresa">Endereço empresa:</label>
-            <input type="text" name="enderecoempresa" id="enderecoempresa" placeholder="rua / n°">
-
-            <label for="bairroempresa">Bairro:</label>
-            <input type="text" name="bairroempresa" id="bairroempresa">
-
-            <label for="telefoneempresa">Telefone da empresa:</label>
-            <input type="text" name="telefoneempresa" id="telefoneempresa">
-
-            <label for="cepempresa">CEP da empresa:</label>
-            <input type="text" name="cepempresa" id="cepempresa">
-
-            <label for="cidadeempresa">Cidade da empresa:</label>
-            <input type="text" name="cidadeempresa" id="cidadeempresa">
-
-
-            <label for="estadoempresa">Estado da empresa:</label>
-            <select id="estadoempresa" name="estadoempresa">
-                <option value="AC">Acre</option>
-                <option value="AL">Alagoas</option>
-                <option value="AP">Amapá</option>
-                <option value="AM">Amazonas</option>
-                <option value="BA">Bahia</option>
-                <option value="CE">Ceará</option>
-                <option value="DF">Distrito Federal</option>
-                <option value="ES">Espírito Santo</option>
-                <option value="GO">Goiás</option>
-                <option value="MA">Maranhão</option>
-                <option value="MT">Mato Grosso</option>
-                <option value="MS">Mato Grosso do Sul</option>
-                <option value="MG">Minas Gerais</option>
-                <option value="PA">Pará</option>
-                <option value="PB">Paraíba</option>
-                <option value="PR">Paraná</option>
-                <option value="PE">Pernambuco</option>
-                <option value="PI">Piauí</option>
-                <option value="RJ">Rio de Janeiro</option>
-                <option value="RN">Rio Grande do Norte</option>
-                <option value="RS">Rio Grande do Sul</option>
-                <option value="RO">Rondônia</option>
-                <option value="RR">Roraima</option>
-                <option value="SC">Santa Catarina</option>
-                <option value="SP" selected>São Paulo</option>
-                <option value="SE">Sergipe</option>
-                <option value="TO">Tocantins</option>
-            </select>
-            
-            <label for="nomerepresentante">Nome representante:</label>
-            <input type="text" name="nomerepresentante" id="nomerepresentante">
-
-            <label for="representantecargo">Cargo do representante:</label>
-            <input type="text" name="representantecargo" id="representantecargo">
-
-            <label for="cpfrepresentante">CPF do representante:</label>
-            <input type="text" name="cpfrepresentante" id="cpfrepresentante">
-
-            <label for="telefonerepresentante">Telefone do representante:</label>
-            <input type="tel" name="telefonerepresentante" id="telefonerepresentante">
+    <header>
+        <div class="logo">
+            <h1>Fatec</h1>
+            <h2>Itapira</h2>
         </div>
-        <div class="aluno">
-            <label for="ra">R.A:</label>
-            <input type="text" name="ra" id="ra">
-        
-            <label for="semestre">Semestre:</label>
-            <input type="number" name="semestre" id="semestre">
-
-            <label for="nomeestagiario">Nome do estagiário:</label>
-            <input type="text" name="nomeestagiario" id="nomeestagiario">
-            
-            <label for="rgestagiario">RG do estagiário:</label>
-            <input type="text" name="rgestagiario" id="rgestagiario">
-            
-            <label for="enderecoestagiario">Endereço do estagiário:</label>
-            <input type="text" name="enderecoestagiario" id="enderecoestagiario" placeholder="rua / n°">
-            
-            <label for="cidadeestagiario">Cidade do estagiário:</label>
-            <input type="text" name="cidadeestagiario" id="cidadeestagiario">
-
-            <label for="estagiariobairro">Bairro:</label>
-            <input type="text" name="estagiariobairro" id="estagiariobairro">
-
-            <label for="estagiariocep">CEP</label>
-            <input type="text" name="estagiariocep" id="estagiariocep">
-
-            <label for="estagiariotelefone">Telefone:</label>
-            <input type="tel" name="estagiariotelefone" id="estagiariotelefone">
-
-            <label for="estagiarioemail">Email do estagiário:</label>
-            <input type="email" name="estagiarioemail" id="estagiarioemail">
-            
-            <label for="estado">Estado:</label>
-            <select id="estado" name="estado">
-                <option value="AC">Acre</option>
-                <option value="AL">Alagoas</option>
-                <option value="AP">Amapá</option>
-                <option value="AM">Amazonas</option>
-                <option value="BA">Bahia</option>
-                <option value="CE">Ceará</option>
-                <option value="DF">Distrito Federal</option>
-                <option value="ES">Espírito Santo</option>
-                <option value="GO">Goiás</option>
-                <option value="MA">Maranhão</option>
-                <option value="MT">Mato Grosso</option>
-                <option value="MS">Mato Grosso do Sul</option>
-                <option value="MG">Minas Gerais</option>
-                <option value="PA">Pará</option>
-                <option value="PB">Paraíba</option>
-                <option value="PR">Paraná</option>
-                <option value="PE">Pernambuco</option>
-                <option value="PI">Piauí</option>
-                <option value="RJ">Rio de Janeiro</option>
-                <option value="RN">Rio Grande do Norte</option>
-                <option value="RS">Rio Grande do Sul</option>
-                <option value="RO">Rondônia</option>
-                <option value="RR">Roraima</option>
-                <option value="SC">Santa Catarina</option>
-                <option value="SP" selected>São Paulo</option>
-                <option value="SE">Sergipe</option>
-                <option value="TO">Tocantins</option>
-            </select>
+    </header>
+    <main>
+        <div class="sidebar-container">
+            <div class="sidebar">
+                <ul>
+                    <a href="../alunos/aluno-perfil.php" class="sidebar-opt"><li>Perfil do Aluno</li></a>
+                    <a href="../alunos/aluno-gerar-documento.php" class="sidebar-opt"><li>Gerar Documento</li></a>
+                    <a href="../alunos/aluno-novo-estagio.php" class="sidebar-opt"><li>Solicitar Estágio</li></a>
+                    <a href="../alunos/aluno-acompanhar.php" class="sidebar-opt"><li>Acompanhar Processos</li></a>
+                    <a href="../alunos/aluno-assinado.php" class="sidebar-opt"><li>Documentos Assinados</li></a>
+                </ul>
+            </div>
+            <div>           
+                <ul>
+                    <a href="../usuarios/usuario-logout.php"><li>Sair</li></a>
+                </ul>
+            </div>
         </div>
 
-        <div class="estagio">
-            <label for="horarioentrada">Horário entrada:</label>
-            <input type="time" name="horarioentrada" id="horarioentrada">
-            
-            <label for="horariosaida">Horário saida:</label>
-            <input type="time" name="horariosaida" id="horariosaida">
+        <div class="container-content">
+            <div class="content">
+                <form action="../../funcoes/gravar-dadosNOR.php" method="post" id="formulario">
+                    <input type="hidden" name="nomedocumento" value="Estágio obrigatório não-remunerado">
+                    <input type="hidden" name="id_aluno" value="<?php echo $idaluno?>">
+                    <div class="empresa">
+                        <label for="nomeempresa">Nome da empresa:</label>
+                        <input type="text" name="nomeempresa" id="nomeempresa">
+                        <label for="cnpj">Cnpj:</label>
+                        <input type="text" name="cnpj" id="cnpj">
+                        <label for="departamento">Divisão ou Departamento:</label>
+                        <input type="text" name="departamento" id="departamento">
+                        <label for="emailempresa">Email da empresa:</label>
+                        <input type="email" name="emailempresa" id="emailempresa">
+                
+                        <label for="enderecoempresa">Endereço empresa:</label>
+                        <input type="text" name="enderecoempresa" id="enderecoempresa" placeholder="rua / n°">
+                        <label for="bairroempresa">Bairro:</label>
+                        <input type="text" name="bairroempresa" id="bairroempresa">
+                        <label for="telefoneempresa">Telefone da empresa:</label>
+                        <input type="text" name="telefoneempresa" id="telefoneempresa">
+                        <label for="cepempresa">CEP da empresa:</label>
+                        <input type="text" name="cepempresa" id="cepempresa">
+                        <label for="cidadeempresa">Cidade da empresa:</label>
+                        <input type="text" name="cidadeempresa" id="cidadeempresa">
+                        <label for="estadoempresa">Estado da empresa:</label>
+                        <select id="estadoempresa" name="estadoempresa">
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP" selected>São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+                
+                        <label for="nomerepresentante">Nome representante:</label>
+                        <input type="text" name="nomerepresentante" id="nomerepresentante">
+                        <label for="representantecargo">Cargo do representante:</label>
+                        <input type="text" name="representantecargo" id="representantecargo">
+                        <label for="cpfrepresentante">CPF do representante:</label>
+                        <input type="text" name="cpfrepresentante" id="cpfrepresentante">
+                        <label for="telefonerepresentante">Telefone do representante:</label>
+                        <input type="tel" name="telefonerepresentante" id="telefonerepresentante">
+                    </div>
+                    <div class="aluno">
+                        <label for="ra">R.A:</label>
+                        <input type="text" name="ra" id="ra">
+                
+                        <label for="semestre">Semestre:</label>
+                        <input type="number" name="semestre" id="semestre">
+                        <label for="nomeestagiario">Nome do estagiário:</label>
+                        <input type="text" name="nomeestagiario" id="nomeestagiario">
+                
+                        <label for="rgestagiario">RG do estagiário:</label>
+                        <input type="text" name="rgestagiario" id="rgestagiario">
+                
+                        <label for="enderecoestagiario">Endereço do estagiário:</label>
+                        <input type="text" name="enderecoestagiario" id="enderecoestagiario" placeholder="rua / n°">
+                
+                        <label for="cidadeestagiario">Cidade do estagiário:</label>
+                        <input type="text" name="cidadeestagiario" id="cidadeestagiario">
+                        <label for="estagiariobairro">Bairro:</label>
+                        <input type="text" name="estagiariobairro" id="estagiariobairro">
+                        <label for="estagiariocep">CEP</label>
+                        <input type="text" name="estagiariocep" id="estagiariocep">
+                        <label for="estagiariotelefone">Telefone:</label>
+                        <input type="tel" name="estagiariotelefone" id="estagiariotelefone">
+                        <label for="estagiarioemail">Email do estagiário:</label>
+                        <input type="email" name="estagiarioemail" id="estagiarioemail">
+                
+                        <label for="estado">Estado:</label>
+                        <select id="estado" name="estado">
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP" selected>São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+                    </div>
+                    <div class="estagio">
+                        <label for="horarioentrada">Horário entrada:</label>
+                        <input type="time" name="horarioentrada" id="horarioentrada">
+                
+                        <label for="horariosaida">Horário saida:</label>
+                        <input type="time" name="horariosaida" id="horariosaida">
+                        <label for="entradarefeicao">Entrada do horário de refeição:</label>
+                        <input type="time" name="entradarefeicao" id="entradarefeicao">
+                        <label for="saidarefeicao">Saida do horário de refeição:</label>
+                        <input type="time" name="saidarefeicao" id="saidarefeicao">
+                        <label for="horassemanais">Horas totais semanais:</label>
+                        <input type="number" name="horassemanais" id="horassemanais">
+                        <label for="comeco">Data do começo do estágio:</label>
+                        <input type="date" name="comeco" id="comeco">
+                
+                        <label for="fim">Data do fim do estágio:</label>
+                        <input type="date" name="fim" id="fim">
+                    </div>
+                    <div class="seguro">
+                        <label for="numeroapolice">Número da apólice:</label>
+                        <input type="text" name="numeroapolice" id="numeroapolice">
+                        <label for="nomeseguradora">Nome da seguradora:</label>
+                        <input type="text" name="nomeseguradora" id="nomeseguradora">
+                    </div>
+                    <div class="atividades">
+                        <label for="atividade">Atividade:</label>
+                        <textarea name="atividade" id="atividade"></textarea>
+                        <label for="descricao">Descrição da atividade:</label>
+                        <textarea name="descricao" id="descricao"></textarea>
+                
+                        <label for="objetivo">Objetivo ou resultado esperado:</label>
+                        <textarea name="objetivo" id="objetivo"></textarea>
+                
+                        <label for="periodo">Período previsto (inicio e término):</label>
+                        <textarea name="periodo" id="periodo"></textarea>
+                    </div>
+                        <input type="submit" value="Enviar" id="btn-enviar" onclick="pegarValoresFormulario()" class="primeiro">
+                </form>
+                <div class="seletor">
+                    <form action="../preencher/preencherNOR.php" method="post">
+                        <label for="anteriordocs">Preencher com base em:</label>
+                        <select name="anteriordocs" id="anteriordocs">
+                            <option value="" selected>Selecione uma opção</option>
+                            <?php include '../../classes/Conexao.php';
+                                $sql = "SELECT idrequisicao, nomedocumento, horaocorrencia
+                                        FROM dadosformnor
+                                        WHERE id_aluno = $idaluno";
 
-            <label for="entradarefeicao">Entrada do horário de refeição:</label>
-            <input type="time" name="entradarefeicao" id="entradarefeicao">
-
-            <label for="saidarefeicao">Saida do horário de refeição:</label>
-            <input type="time" name="saidarefeicao" id="saidarefeicao">
-
-            <label for="horassemanais">Horas totais semanais:</label>
-            <input type="number" name="horassemanais" id="horassemanais">
-
-            <label for="comeco">Data do começo do estágio:</label>
-            <input type="date" name="comeco" id="comeco">
-            
-            <label for="fim">Data do fim do estágio:</label>
-            <input type="date" name="fim" id="fim">
+                                $resultado = $conexao->query($sql);
+                                $lista = $resultado->fetchAll();
+                                foreach ($lista as $linha) { ?>
+                                    <option value="<?php echo $linha['idrequisicao'];?>">
+                                        <?php echo $linha['nomedocumento']." ".$linha['horaocorrencia'];?>
+                                    </option> <?php
+                                } ?>
+                        </select>
+                        <input type="submit" class="puxar-dados" value="Puxar dados">
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <div class="seguro">
-            <label for="numeroapolice">Número da apólice:</label>
-            <input type="text" name="numeroapolice" id="numeroapolice">
-
-            <label for="nomeseguradora">Nome da seguradora:</label>
-            <input type="text" name="nomeseguradora" id="nomeseguradora">
-        </div>
-
-        <div class="atividades">
-            <label for="atividade">Atividade:</label>
-            <textarea name="atividade" id="atividade"></textarea>
-
-            <label for="descricao">Descrição da atividade:</label>
-            <textarea name="descricao" id="descricao"></textarea>
-            
-            <label for="objetivo">Objetivo ou resultado esperado:</label>
-            <textarea name="objetivo" id="objetivo"></textarea>
-            
-            <label for="periodo">Período previsto (inicio e término):</label>
-            <textarea name="periodo" id="periodo"></textarea>
-        </div>
-            <input type="submit" value="Enviar" onclick="pegarValoresFormulario()" class="primeiro">
-    </form>
-
-    <div class="seletor">
-        <form action="preencherNOR.php" method="post">
-            <label for="anteriordocs">Preencher com base em:</label>
-            <select name="anteriordocs" id="anteriordocs">
-                <option value="" selected>Selecione uma opção</option>
-                <?php include '../../classes/Conexao.php';
-                    $sql = "SELECT idrequisicao,nomedocumento,horaocorrencia 
-                            FROM dadosformnor 
-                            WHERE id_aluno = $idaluno";
-
-                    $resultado = $conexao->query($sql);
-                    $lista = $resultado->fetchAll();
-                    foreach ($lista as $linha) { ?>  
-                        <option value="<?php echo $linha['idrequisicao'];?>">
-                            <?php echo $linha['nomedocumento']." ".$linha['horaocorrencia'];?>
-                        </option> <?php 
-                    } ?>
-            </select>
-            <input type="submit" value="Puxar dados">
-        </form>
-    </div>
+    </main>
     <script>
         function pegarValoresFormulario() {
 

@@ -20,7 +20,7 @@
         $resultado = $conexao->query($sql);
         $lista = $resultado->fetch();
     ?>
-    <form action="gravardadosNOR.php" method="post" id="formulario">
+    <form action="../../funcoes/gravar-dadosNOR.php" method="post" id="formulario">
         
         <input type="hidden" name="nomedocumento" value="Estágio obrigatório remunerado">
         <input type="hidden" name="id_aluno" value="<?php echo $idaluno?>">
@@ -204,7 +204,7 @@
             <input type="submit" value="Enviar" onclick="pegarValoresFormulario()" name="gravarnobd" class="primeiro">
     </form>
     <div class="seletor">
-        <a href="formONR.php"><p>Cancelar preenchimento</p></a>
+        <a href="../form/formONR.php"><p>Cancelar preenchimento</p></a>
     </div>
 
     <script>

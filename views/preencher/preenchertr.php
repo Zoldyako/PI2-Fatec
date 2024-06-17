@@ -20,7 +20,7 @@
         $resultado = $conexao->query($sql);
         $lista = $resultado->fetch();
     ?>
-    <form action="gravardadosTR.php" method="post" name="formulario">
+    <form action="../../funcoes/gravar-dadosTR.php" method="post" name="formulario">
         <input type="hidden" name="id_aluno" value="<?php echo $id_aluno;?>">
         
         <input type="hidden" name="nomedocumento" value="Termo de rescisão">
@@ -60,7 +60,7 @@
         <input type="submit" value="Gerar relatório" onclick="pegarValoresFormulario()">
     </form>
     <div class="seletor">
-        <a href="formTR.php"><p>Limpar preenchimento</p></a>
+        <a href="../form/formTR.php"><p>Limpar preenchimento</p></a>
     </div>
     <script>
         function pegarValoresFormulario(){

@@ -8,54 +8,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../estilo/nav-bar.css">
+    <link rel="stylesheet" href="../../estilo/side-bar.css">
+    <link rel="stylesheet" href="../../estilo/style.css">
+    <link rel="stylesheet" href="../../estilo/form/formRP.css">
     <title>Relatório Parcial</title>
-    <style></style>
 </head>
 <body>
-    <form action="gravardadosRP.php" method="post" id="formulario">
-        <input type="hidden" name="nomedocumento" value="Relatório parcial">
-        <input type="hidden" name="id_aluno" value="<?php echo $id_aluno?>" >
-
-        <label for="nomeestagiario">Nome do estagiário:</label>
-        <input type="text" name="nomeestagiario" id="nomeestagiario">
-        
-        <label for="ra">R.A.:</label>
-        <input type="text" name="ra" id="ra">
-        
-        <label for="nomeempresa">Nome da empresa:</label>
-        <input type="text" name="nomeempresa" id="nomeempresa">
-        
-        <label for="nomerepresentante">Nome do responsável pelo estágio:</label>
-        <input type="text" name="nomerepresentante" id="nomerepresentante">
-        
-        <label for="datainicio">Data do inicio do estágio:</label>
-        <input type="date" name="datainicio" id="datainicio">
-        
-        <label for="datatermino">Data do final do estágio:</label>
-        <input type="date" name="datatermino" id="datatermino">
-        
-        <input type="submit" value="Gerar relatório" onclick="pegarValores()" >
-    </form>
-    <div class="seletor">
-        <form action="preencherrp.php" method="post" style="display:flex;flex-direction:column;">
-            <label for="anteriordocs">Preencher com base em:</label>
-            <select name="anteriordocs" id="anteriordocs">
-                <option value="" selected>Selecione uma opção</option>
-                <?php            
-                    include 'classes/Conexao.php';
-                    $sql = "SELECT idrequisicao, nomedocumento, horaocorrencia 
-                            FROM dadosformrp 
-                            WHERE id_aluno = $id_aluno";
-
-                    $resultado = $conexao->query($sql);
-                    $lista = $resultado->fetchAll();
-                    
-                    foreach ($lista as $linha) { ?>  
-                        <option value="<?php echo $linha['idrequisicao'];?>"><?php echo $linha['nomedocumento']." ".$linha['horaocorrencia'];?></option> <?php
-                    } ?>
-            </select>
-            <input type="submit" value="Puxar dados">
-        </form>
+    <header>
+        <div class="logo">
+            <h1>Fatec</h1>
+            <h2>Itapira</h2>
+        </div>
+    </header>
+    <main>
+        <div class="sidebar-container">
+            <div class="sidebar">
+                <ul>
+                    <a href="../alunos/aluno-perfil.php" class="sidebar-opt"><li>Perfil do Aluno</li></a>
+                    <a href="../alunos/aluno-gerar-documento.php" class="sidebar-opt"><li>Gerar Documento</li></a>
+                    <a href="../alunos/aluno-novo-estagio.php" class="sidebar-opt"><li>Solicitar Estágio</li></a>
+                    <a href="../alunos/aluno-acompanhar.php" class="sidebar-opt"><li>Acompanhar Processos</li></a>
+                    <a href="../alunos/aluno-assinado.php" class="sidebar-opt"><li>Documentos Assinados</li></a>
+                </ul>
+            </div>
+            <div>           
+                <ul>
+                    <a href="../usuarios/usuario-logout.php"><li>Sair</li></a>
+                </ul>
+            </div>
+        </div>
+        <div class="container-content">
+            <div class="content">
+                <form action="../../funcoes/gravar-dadosRP.php" method="post" id="formulario">
+                    <input type="hidden" name="nomedocumento" value="Relatório parcial">
+                    <input type="hidden" name="id_aluno" value="<?php echo $id_aluno?>" >
+                    <label for="nomeestagiario">Nome do estagiário:</label>
+                    <input type="text" name="nomeestagiario" id="nomeestagiario">
+                
+                    <label for="ra">R.A.:</label>
+                    <input type="text" name="ra" id="ra">
+                
+                    <label for="nomeempresa">Nome da empresa:</label>
+                    <input type="text" name="nomeempresa" id="nomeempresa">
+                
+                    <label for="nomerepresentante">Nome do responsável pelo estágio:</label>
+                    <input type="text" name="nomerepresentante" id="nomerepresentante">
+                
+                    <label for="datainicio">Data do inicio do estágio:</label>
+                    <input type="date" name="datainicio" id="datainicio">
+                
+                    <label for="datatermino">Data do final do estágio:</label>
+                    <input type="date" name="datatermino" id="datatermino">
+                
+                    <input type="submit" class="gerar-relatorio" value="Gerar relatório" onclick="pegarValores()" >
+                </form>
+            <div class="seletor">
+                <form action="../preencher/preencherrp.php" method="post">
+                    <label for="anteriordocs">Preencher com base em:</label>
+                    <select name="anteriordocs" id="anteriordocs">
+                        <option value="" selected>Selecione uma opção</option>
+                        <?php
+                            include 'classes/Conexao.php';
+                            $sql = "SELECT idrequisicao, nomedocumento, horaocorrencia
+                                    FROM dadosformrp
+                                    WHERE id_aluno = $id_aluno";
+                            $resultado = $conexao->query($sql);
+                            $lista = $resultado->fetchAll();
+            
+                            foreach ($lista as $linha) { ?>
+                                <option value="<?php echo $linha['idrequisicao'];?>"><?php echo $linha['nomedocumento']." ".$linha['horaocorrencia'];?></option> <?php
+                            } ?>
+                    </select>
+                    <input type="submit" value="Puxar dados">
+                </form>
+            </div>
+        </div>
     </div>
     <script>
         function pegarValores(){

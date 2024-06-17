@@ -21,7 +21,7 @@
         $resultado = $conexao->query($sql);
         $lista = $resultado->fetch();
     ?>
-    <form action="gravardadosOR.php" method="post" id="formulario">
+    <form action="../../funcoes/gravar-dadosOR.php" method="post" id="formulario">
         <input type="hidden" name="nomedocumento" value="Estágio obrigatório remunerado">
         <input type="hidden" name="id_aluno" value="<?php echo $idaluno?>">
         <div class="empresa">
@@ -209,7 +209,7 @@
     </form>
 
     <div class="seletor">
-        <a href="formOR.php"><p>Cancelar preenchimento</p></a>
+        <a href="../form/formOR.php"><p>Cancelar preenchimento</p></a>
     </div>
     <script>
         function pegarValoresFormulario() {
@@ -667,8 +667,8 @@
             imagem2.onload = verificarCarregamento;
 
             // Defina os src após atribuir onload handlers
-            imagem1.src = "../marcadagua1.png";
-            imagem2.src = "../marcadagua2.png";
+            imagem1.src = "../../img/marcadagua1.png";
+            imagem2.src = "../../img/marcadagua2.png";
 
             // Adicione as imagens ao documento da nova janela
             novaJanela.document.body.appendChild(imagem1);

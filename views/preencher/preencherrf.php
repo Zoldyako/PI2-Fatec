@@ -19,7 +19,7 @@
         $resultado = $conexao->query($sql);
         $lista = $resultado->fetch();
     ?>
-    <form action="gravardadosRF.php" method="post">
+    <form action="../../funcoes/gravar-dadosRF.php" method="post">
         <input type="hidden" name="nomedocumento" value="Relatório final">
         <input type="hidden" name="id_aluno" value="<?php echo $idaluno?>">
             <label for="nomeestagiario">Nome do estagiário:</label>
@@ -51,8 +51,8 @@
             
             <input type="submit" value="Gerar relatório" onclick="pegarValores()">
     </form>
-    <div class="seletor" style="width:270px;position:absolute;left:61%;top:80%;">
-        <a href="formRF.php">Limpar preenchimento</a>
+    <div class="seletor">
+        <a href="../form/formRF.php">Limpar preenchimento</a>
     </div>
     <script>
         function pegarValores(){

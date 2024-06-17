@@ -8,68 +8,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../estilo/nav-bar.css">
+    <link rel="stylesheet" href="../../estilo/side-bar.css">
+    <link rel="stylesheet" href="../../estilo/style.css">
+    <link rel="stylesheet" href="../../estilo/form/formTR.css">
     <title>Document</title>
 </head>
 <body>
-    <form action="gravardadosTR.php" method="post" name="formulario">
-        <input type="hidden" name="id_aluno" value="<?php echo $id_aluno;?>">
-        <input type="hidden" name="nomedocumento" value="Termo de rescisão">
-        
-        <label for="diaatual">Dia atual do documento:</label>
-        <input type="text" name="diaatual" id="diaatual" style="width: 40px;">
-        
-        <label for="mesatual">Nome do mês atual do documento:</label>
-        <input type="text" name="mesatual" id="mesatual">
-        
-        <label for="anoatual">Ano atual do documento:</label>
-        <input type="text" name="anoatual" id="anoatual" style="width: 60px;">
-        
-        <label for="datarescisao">Data da rescisão:</label>
-        <input type="date" name="datarescisao" id="datarescisao">
-        
-        <label for="datatermino">Data que começou o estágio:</label>
-        <input type="date" name="datatermino" id="datatermino">
-        
-        <label for="nomeempresa">Nome da empresa:</label>
-        <input type="text" name="nomeempresa" id="nomeempresa">
-        
-        <label for="nomeestagiario">Nome do estagiário:</label>
-        <input type="text" name="nomeestagiario" id="nomeestagiario">
-        
-        <label for="nomecurso">Nome do curso:</label>
-        <input type="text" name="nomecurso" id="nomecurso">
-        
-        <label for="motivo">Motivo:</label>
-        <select name="motivo" id="motivo">
-            <option value="" selected>Selecione uma opção</option>
-            <option value="CLT">Contratação de estagiário em regime CLT</option>
-            <option value="IEmp">Por iniciativa da empresa</option>
-            <option value="SI">Situação irregular de matrícula do estudante</option>
-            <option value="IEst">Por iniciativa do estudante</option>
-        </select>
-        <input type="submit" value="Gerar relatório" onclick="pegarValoresFormulario()">
-    </form>
-    <div class="seletor">
-        <form action="preenchertr.php" method="post" style="display:flex;flex-direction:column;">
-            <label for="anteriordocs">Preencher com base em:</label>
-                <select name="anteriordocs" id="anteriordocs">
-                <option value="" selected>Selecione uma opção</option> 
-                <?php include '../../classes/Conexao.php';
-                    $sql = "SELECT idrequisicao, nomedocumento, horaocorrencia 
-                            FROM dadosformtr 
-                            WHERE id_aluno = $id_aluno";
+    <header>
+        <div class="logo">
+            <h1>Fatec</h1>
+            <h2>Itapira</h2>
+        </div>
+    </header>
+    <main>
+        <div class="sidebar-container">
+            <div class="sidebar">
+                <ul>
+                    <a href="../alunos/aluno-perfil.php" class="sidebar-opt"><li>Perfil do Aluno</li></a>
+                    <a href="../alunos/aluno-gerar-documento.php" class="sidebar-opt"><li>Gerar Documento</li></a>
+                    <a href="../alunos/aluno-novo-estagio.php" class="sidebar-opt"><li>Solicitar Estágio</li></a>
+                    <a href="../alunos/aluno-acompanhar.php" class="sidebar-opt"><li>Acompanhar Processos</li></a>
+                    <a href="../alunos/aluno-assinado.php" class="sidebar-opt"><li>Documentos Assinados</li></a>
+                </ul>
+            </div>
+            <div>           
+                <ul>
+                    <a href="../usuarios/usuario-logout.php"><li>Sair</li></a>
+                </ul>
+            </div>
+        </div>
+        <div class="container-content">
+            <div class="content">
+                <form action="../../funcoes/gravar-dadosTR.php" method="post" name="formulario" id="formulario">
+                    <input type="hidden" name="id_aluno" value="<?php echo $id_aluno;?>">
+                    <input type="hidden" name="nomedocumento" value="Termo de rescisão">
+                
+                    <label for="diaatual">Dia atual do documento:</label>
+                    <input type="text" name="diaatual" id="diaatual">
+                
+                    <label for="mesatual">Nome do mês atual do documento:</label>
+                    <input type="text" name="mesatual" id="mesatual">
+                
+                    <label for="anoatual">Ano atual do documento:</label>
+                    <input type="text" name="anoatual" id="anoatual">
+                
+                    <label for="datarescisao">Data da rescisão:</label>
+                    <input type="date" name="datarescisao" id="datarescisao">
+                
+                    <label for="datatermino">Data que começou o estágio:</label>
+                    <input type="date" name="datatermino" id="datatermino">
+                
+                    <label for="nomeempresa">Nome da empresa:</label>
+                    <input type="text" name="nomeempresa" id="nomeempresa">
+                
+                    <label for="nomeestagiario">Nome do estagiário:</label>
+                    <input type="text" name="nomeestagiario" id="nomeestagiario">
+                
+                    <label for="nomecurso">Nome do curso:</label>
+                    <input type="text" name="nomecurso" id="nomecurso">
+                
+                    <label for="motivo">Motivo:</label>
+                    <select name="motivo" id="motivo">
+                        <option value="" selected>Selecione uma opção</option>
+                        <option value="CLT">Contratação de estagiário em regime CLT</option>
+                        <option value="IEmp">Por iniciativa da empresa</option>
+                        <option value="SI">Situação irregular de matrícula do estudante</option>
+                        <option value="IEst">Por iniciativa do estudante</option>
+                    </select>
+                    <input type="submit" class="btns" value="Gerar relatório" onclick="pegarValoresFormulario()">
+                </form>
+    
+                <div class="seletor">
+                    <form action="../preencher/preenchertr.php" method="post">
+                        <label for="anteriordocs">Preencher com base em:</label>
+                        <select name="anteriordocs" id="anteriordocs">
+                            <option value="" selected>Selecione uma opção</option> 
+                            <?php include '../../classes/Conexao.php';
+                            $sql = "SELECT idrequisicao, nomedocumento, horaocorrencia 
+                                    FROM dadosformtr 
+                                    WHERE id_aluno = $id_aluno";
 
-                    $resultado = $conexao->query($sql);
-                    $lista = $resultado->fetchAll();
+                            $resultado = $conexao->query($sql);
+                            $lista = $resultado->fetchAll();
                     
-                    foreach ($lista as $linha) { ?>  
-                        <option value="<?php echo $linha['idrequisicao'];?>"><?php echo $linha['nomedocumento']." ".$linha['horaocorrencia'];?></option> <?php 
-                    } ?>
-                </select>
-            <input type="submit" value="Puxar dados">
-        </form>
-    </div>
-
+                            foreach ($lista as $linha) { ?>  
+                                <option value="<?php echo $linha['idrequisicao'];?>"><?php echo $linha['nomedocumento']." ".$linha['horaocorrencia'];?></option> <?php 
+                            } ?>
+                        </select>
+                        <input type="submit" class="btns" value="Puxar dados">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
     <script>
         function pegarValoresFormulario(){
            
