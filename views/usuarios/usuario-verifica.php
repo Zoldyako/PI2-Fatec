@@ -6,7 +6,9 @@
     } 
     
     else {
-        $sql = "SELECT * FROM tb_usuarios WHERE username = '".$_SESSION['usuario_logado']."';";
+        $sql = "SELECT * 
+                FROM tb_usuarios 
+                WHERE username = '".$_SESSION['usuario_logado']."';";
 
         $resultado = $conexao->query($sql);
         $linha = $resultado->fetch();

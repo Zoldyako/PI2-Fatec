@@ -12,3 +12,8 @@
     display: flex; 
 }
 
+
+.infos {
+    margin-left: 8px;
+    margin-bottom:16px;
+}

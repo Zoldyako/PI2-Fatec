@@ -38,8 +38,8 @@
                     <a href="professor.php" class="sidebar-opt"><li>Perfil do Professor</li></a>
                     <a href="professor-pendente.php" class="sidebar-opt"><li>Documentos Pendentes</li></a>
                     <a href="professor-avaliados.php" class="sidebar-opt"><li>Documentos Avaliados</li></a>
-                    <a href="#" class="sidebar-opt"><li>Documentos Assinados</li></a>
-                    <a href="professor-pendente-assinado.php" class="sidebar-opt"><li>Assinados avaliados</li></a>
+                    <a href="#" class="sidebar-opt"><li>Assinados Pendentes</li></a>
+                    <a href="professor-analisado-assinado.php" class="sidebar-opt"><li>Assinados avaliados</li></a>
                 </ul>
             </div>
             <div>           
@@ -50,9 +50,8 @@
         </div>
         <div class="container-content">
             <div class="content">
-                <h1>Bem vindo <?=$linha['nome']?></h1>
-                <h2>Veja abaixo documentos pendentes para você analisar!</h2>
-                <form action="professorpendente.php" method="post">
+                <h2>Documentos para analise</h2>
+                <form action="professor-pendente.php" method="post">
                     <label for="filtro">Filtrar por:</label>
                     <select name="filtro" id="filtro">
                         <option value="null" selected>Selecione uma opção</option>

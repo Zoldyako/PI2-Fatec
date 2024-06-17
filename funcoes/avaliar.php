@@ -23,6 +23,6 @@ if ($avaliacao == 'aprovar'){
 
 $conexao->exec($sql);
 
-if ($pag == '1') { header("Location:pendenteassinado.php "); }
-else { header("Location: professorpendente.php"); }
+if ($pag == '1') { header("Location:../views/professores/professor-pendente-assinado.php "); }
+else { header("Location: ../views/professores/professor-pendente.php"); }
 ?>

@@ -39,7 +39,7 @@
                     <a href="professor.php" class="sidebar-opt"><li>Perfil do Professor</li></a>
                     <a href="professor-pendente.php" class="sidebar-opt"><li>Documentos Pendentes</li></a>
                     <a href="professor-avaliados.php" class="sidebar-opt"><li>Documentos Avaliados</li></a>
-                    <a href="professor-pendente-assinado.php" class="sidebar-opt"><li>Documentos Assinados</li></a>
+                    <a href="professor-pendente-assinado.php" class="sidebar-opt"><li>Assinados Pendentes</li></a>
                     <a href="#" class="sidebar-opt"><li>Assinados avaliados</li></a>
                 </ul>
             </div>
@@ -51,120 +51,119 @@
         </div>
         <div class="container-content">
             <div class="content">
-                <h1>Bem vindo <?=$linha['nome']?></h1>
-                <h2>Veja abaixo documentos pendentes para você analisar!</h2>
+                <h2>Documentos pendentes: </h2>
                 <?php
                 if (!isset($_POST['filtro'])) {
-                    echo '         <form action="professoravaliados.php" method="post">';
-                    echo '         <label for="filtro">Filtrar por:</label>';
-                    echo '         <select name="filtro" id="filtro">';
-                    echo '         <option value="null" selected>Selecione uma opção</option>';
-                    echo '         <option value="termocompromisso.pdf">Termo de compromisso</option>';
-                    echo '         <option value="relatoriofinal.pdf">Relatório final</option>';
-                    echo '         <option value="relatorioparcial.pdf">Relatório parcial</option>';
-                    echo '         <option value="termorescisão.pdf">Termo de rescisão</option>';
-                    echo '         <option value="sem">Retirar filtro</option>';
-                    echo ' </select>   ';
-                    echo ' <label for="nomefiltro">Filtrar por nome:</label>';
-                    echo ' <input type="text" name="nomefiltro" id="nomefiltro">';
-                    echo ' <input type="submit" value="Filtrar">';
-                    echo '     </form>';
+                    echo '          <form action="professor-avaliados.php" method="post">';
+                    echo '              <label for="filtro">Filtrar por:</label>';
+                    echo '              <select name="filtro" id="filtro">';
+                    echo '                  <option value="null" selected>Selecione uma opção</option>';
+                    echo '                  <option value="termocompromisso.pdf">Termo de compromisso</option>';
+                    echo '                  <option value="relatoriofinal.pdf">Relatório final</option>';
+                    echo '                  <option value="relatorioparcial.pdf">Relatório parcial</option>';
+                    echo '                  <option value="termorescisão.pdf">Termo de rescisão</option>';
+                    echo '                  <option value="sem">Retirar filtro</option>';
+                    echo '              </select>   ';
+                    echo '              <label for="nomefiltro">Filtrar por nome:</label>';
+                    echo '              <input type="text" name="nomefiltro" id="nomefiltro">';
+                    echo '              <input type="submit" value="Filtrar">';
+                    echo '          </form>';
                 
                 } elseif ($_POST['filtro'] == 'null') {
-                    echo '         <form action="professoravaliados.php" method="post">';
-                    echo '         <label for="filtro">Filtrar por:</label>';
-                    echo '         <select name="filtro" id="filtro">';
-                    echo '         <option value="null" selected>Selecione uma opção</option>';
-                    echo '         <option value="termocompromisso.pdf">Termo de compromisso</option>';
-                    echo '         <option value="relatoriofinal.pdf">Relatório final</option>';
-                    echo '         <option value="relatorioparcial.pdf">Relatório parcial</option>';
-                    echo '         <option value="termorescisão.pdf">Termo de rescisão</option>';
-                    echo '         <option value="sem">Retirar filtro</option>';
-                    echo ' </select>   ';
-                    echo ' <label for="nomefiltro">Filtrar por nome:</label>';
-                    echo ' <input type="text" name="nomefiltro" id="nomefiltro">';
-                    echo ' <input type="submit" value="Filtrar">';
-                    echo '     </form>';
+                    echo '          <form action="professor-avaliados.php" method="post">';
+                    echo '              <label for="filtro">Filtrar por:</label>';
+                    echo '              <select name="filtro" id="filtro">';
+                    echo '                  <option value="null" selected>Selecione uma opção</option>';
+                    echo '                  <option value="termocompromisso.pdf">Termo de compromisso</option>';
+                    echo '                  <option value="relatoriofinal.pdf">Relatório final</option>';
+                    echo '                  <option value="relatorioparcial.pdf">Relatório parcial</option>';
+                    echo '                  <option value="termorescisão.pdf">Termo de rescisão</option>';
+                    echo '                  <option value="sem">Retirar filtro</option>';
+                    echo '              </select>   ';
+                    echo '              <label for="nomefiltro">Filtrar por nome:</label>';
+                    echo '              <input type="text" name="nomefiltro" id="nomefiltro">';
+                    echo '              <input type="submit" value="Filtrar">';
+                    echo '          </form>';
                 
                 } elseif ($_POST['filtro'] == 'termocompromisso.pdf') {
-                    echo '         <form action="professoravaliados.php" method="post">';
-                    echo '         <label for="filtro">Filtrar por:</label>';
-                    echo '         <select name="filtro" id="filtro">';
+                    echo ' <form action="professor-avaliados.php" method="post">';
+                    echo '     <label for="filtro">Filtrar por:</label>';
+                    echo '     <select name="filtro" id="filtro">';
                     echo '         <option value="null" >Selecione uma opção</option>';
                     echo '         <option value="termocompromisso.pdf" selected>Termo de compromisso</option>';
                     echo '         <option value="relatoriofinal.pdf">Relatório final</option>';
                     echo '         <option value="relatorioparcial.pdf">Relatório parcial</option>';
                     echo '         <option value="termorescisão.pdf">Termo de rescisão</option>';
                     echo '         <option value="sem">Retirar filtro</option>';
-                    echo ' </select>   ';
-                    echo ' <label for="nomefiltro">Filtrar por nome:</label>';
-                    echo ' <input type="text" name="nomefiltro" id="nomefiltro">';
-                    echo ' <input type="submit" value="Filtrar">';
-                    echo '     </form>';
+                    echo '     </select>   ';
+                    echo '     <label for="nomefiltro">Filtrar por nome:</label>';
+                    echo '     <input type="text" name="nomefiltro" id="nomefiltro">';
+                    echo '     <input type="submit" value="Filtrar">';
+                    echo ' </form>';
 
                 } elseif ($_POST['filtro'] == 'relatoriofinal.pdf') {
-                    echo '         <form action="professoravaliados.php" method="post">';
-                    echo '         <label for="filtro">Filtrar por:</label>';
-                    echo '         <select name="filtro" id="filtro">';
-                    echo '         <option value="null" >Selecione uma opção</option>';
-                    echo '         <option value="termocompromisso.pdf">Termo de compromisso</option>';
-                    echo '         <option value="relatoriofinal.pdf" selected >Relatório final</option>';
-                    echo '         <option value="relatorioparcial.pdf">Relatório parcial</option>';
-                    echo '         <option value="termorescisão.pdf">Termo de rescisão</option>';
-                    echo '         <option value="sem">Retirar filtro</option>';
-                    echo ' </select>   ';
-                    echo ' <label for="nomefiltro">Filtrar por nome:</label>';
-                    echo ' <input type="text" name="nomefiltro" id="nomefiltro">';
-                    echo ' <input type="submit" value="Filtrar">';
-                    echo '     </form>';
+                    echo ' <form action="professor-avaliados.php" method="post">';
+                    echo '      <label for="filtro">Filtrar por:</label>';
+                    echo '      <select name="filtro" id="filtro">';
+                    echo '          <option value="null" >Selecione uma opção</option>';
+                    echo '          <option value="termocompromisso.pdf">Termo de compromisso</option>';
+                    echo '          <option value="relatoriofinal.pdf" selected >Relatório final</option>';
+                    echo '          <option value="relatorioparcial.pdf">Relatório parcial</option>';
+                    echo '          <option value="termorescisão.pdf">Termo de rescisão</option>';
+                    echo '          <option value="sem">Retirar filtro</option>';
+                    echo '      </select>   ';
+                    echo '      <label for="nomefiltro">Filtrar por nome:</label>';
+                    echo '      <input type="text" name="nomefiltro" id="nomefiltro">';
+                    echo '      <input type="submit" value="Filtrar">';
+                    echo '  </form>';
 
                 } elseif ($_POST['filtro'] == 'relatorioparcial.pdf') {
-                    echo '         <form action="professoravaliados.php" method="post">';
-                    echo '         <label for="filtro">Filtrar por:</label>';
-                    echo '         <select name="filtro" id="filtro">';
-                    echo '         <option value="null" >Selecione uma opção</option>';
-                    echo '         <option value="termocompromisso.pdf">Termo de compromisso</option>';
-                    echo '         <option value="relatoriofinal.pdf">Relatório final</option>';
-                    echo '         <option value="relatorioparcial.pdf" selected>Relatório parcial</option>';
-                    echo '         <option value="termorescisão.pdf">Termo de rescisão</option>';
-                    echo '         <option value="sem">Retirar filtro</option>';
-                    echo ' </select>   ';
-                    echo ' <label for="nomefiltro">Filtrar por nome:</label>';
-                    echo ' <input type="text" name="nomefiltro" id="nomefiltro">';
-                    echo ' <input type="submit" value="Filtrar">';
-                    echo '     </form>';
+                    echo ' <form action="professor-avaliados.php" method="post">';
+                    echo '     <label for="filtro">Filtrar por:</label>';
+                    echo '     <select name="filtro" id="filtro">';
+                    echo '          <option value="null" >Selecione uma opção</option>';
+                    echo '          <option value="termocompromisso.pdf">Termo de compromisso</option>';
+                    echo '          <option value="relatoriofinal.pdf">Relatório final</option>';
+                    echo '          <option value="relatorioparcial.pdf" selected>Relatório parcial</option>';
+                    echo '          <option value="termorescisão.pdf">Termo de rescisão</option>';
+                    echo '          <option value="sem">Retirar filtro</option>';
+                    echo '     </select>   ';
+                    echo '     <label for="nomefiltro">Filtrar por nome:</label>';
+                    echo '     <input type="text" name="nomefiltro" id="nomefiltro">';
+                    echo '     <input type="submit" value="Filtrar">';
+                    echo ' </form>';
 
                 } elseif ($_POST['filtro'] == 'termorescisão.pdf') {
-                    echo '         <form action="professoravaliados.php" method="post">';
-                    echo '         <label for="filtro">Filtrar por:</label>';
-                    echo '         <select name="filtro" id="filtro">';
-                    echo '         <option value="null">Selecione uma opção</option>';
-                    echo '         <option value="termocompromisso.pdf">Termo de compromisso</option>';
-                    echo '         <option value="relatoriofinal.pdf">Relatório final</option>';
-                    echo '         <option value="relatorioparcial.pdf">Relatório parcial</option>';
-                    echo '         <option value="termorescisão.pdf" selected>Termo de rescisão</option>';
-                    echo '         <option value="sem">Retirar filtro</option>';
-                    echo ' </select>   ';
-                    echo ' <label for="nomefiltro">Filtrar por nome:</label>';
-                    echo ' <input type="text" name="nomefiltro" id="nomefiltro">';
-                    echo ' <input type="submit" value="Filtrar">';
-                    echo '     </form>';
+                    echo '<form action="professor-avaliados.php" method="post">';
+                    echo '    <label for="filtro">Filtrar por:</label>';
+                    echo '    <select name="filtro" id="filtro">';
+                    echo '        <option value="null">Selecione uma opção</option>';
+                    echo '        <option value="termocompromisso.pdf">Termo de compromisso</option>';
+                    echo '        <option value="relatoriofinal.pdf">Relatório final</option>';
+                    echo '        <option value="relatorioparcial.pdf">Relatório parcial</option>';
+                    echo '        <option value="termorescisão.pdf" selected>Termo de rescisão</option>';
+                    echo '        <option value="sem">Retirar filtro</option>';
+                    echo '    </select>   ';
+                    echo '    <label for="nomefiltro">Filtrar por nome:</label>';
+                    echo '    <input type="text" name="nomefiltro" id="nomefiltro">';
+                    echo '    <input type="submit" value="Filtrar">';
+                    echo '</form>';
 
                 } elseif ($_POST['filtro'] == 'sem') {
-                    echo '         <form action="professoravaliados.php" method="post">';
-                    echo '         <label for="filtro">Filtrar por:</label>';
-                    echo '         <select name="filtro" id="filtro">';
-                    echo '         <option value="null" >Selecione uma opção</option>';
-                    echo '         <option value="termocompromisso.pdf">Termo de compromisso</option>';
-                    echo '         <option value="relatoriofinal.pdf">Relatório final</option>';
-                    echo '         <option value="relatorioparcial.pdf">Relatório parcial</option>';
-                    echo '         <option value="termorescisão.pdf">Termo de rescisão</option>';
-                    echo '         <option value="sem" selected>Retirar filtro</option>';
-                    echo ' </select>   ';
-                    echo ' <label for="nomefiltro">Filtrar por nome:</label>';
-                    echo ' <input type="text" name="nomefiltro" id="nomefiltro">';
-                    echo ' <input type="submit" value="Filtrar">';
-                    echo '     </form>';
+                    echo ' <form action="professor-avaliados.php" method="post">';
+                    echo '  <label for="filtro">Filtrar por:</label>';
+                    echo '  <select name="filtro" id="filtro">';
+                    echo '      <option value="null" >Selecione uma opção</option>';
+                    echo '      <option value="termocompromisso.pdf">Termo de compromisso</option>';
+                    echo '      <option value="relatoriofinal.pdf">Relatório final</option>';
+                    echo '      <option value="relatorioparcial.pdf">Relatório parcial</option>';
+                    echo '      <option value="termorescisão.pdf">Termo de rescisão</option>';
+                    echo '      <option value="sem" selected>Retirar filtro</option>';
+                    echo '  </select>   ';
+                    echo '  <label for="nomefiltro">Filtrar por nome:</label>';
+                    echo '  <input type="text" name="nomefiltro" id="nomefiltro">';
+                    echo '  <input type="submit" value="Filtrar">';
+                    echo ' </form>';
                 } ?>
                 <?php
                 if (isset($_POST['nomefiltro']) && $_POST['nomefiltro']!= '') {

@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="../../estilo/professor/professor.css">
     <link rel="stylesheet" href="../../estilo/style.css">
     <link rel="stylesheet" href="../../estilo/side-bar.css">
-    <link rel="stylesheet" href="../../estilo/nav-bar.css">
     <title>Página do Professor <?php echo $linha['nome']?></title>
 </head> 
 <body>
@@ -42,7 +41,7 @@
                     <a href="#" class="sidebar-opt"><li>Perfil do Professor</li></a>
                     <a href="professor-pendente.php" class="sidebar-opt"><li>Documentos Pendentes</li></a>
                     <a href="professor-avaliados.php" class="sidebar-opt"><li>Documentos Avaliados</li></a>
-                    <a href="professor-pendente-assinado.php" class="sidebar-opt"><li>Documentos Assinados</li></a>
+                    <a href="professor-pendente-assinado.php" class="sidebar-opt"><li>Assinados Pendentes</li></a>
                     <a href="professor-analisado-assinado.php" class="sidebar-opt"><li>Assinados avaliados</li></a>
                 </ul>
             </div>
@@ -55,21 +54,22 @@
         <div class="container-content">
             <div class="content">
                 <h2>Bem vindo <?=$linha['nome']?></h2>
-                    <?php
-                $sql = "SELECT COUNT(*) AS qtdependentes 
-                        FROM tb_documentos 
-                        WHERE status = 'pendente'";
-                
-                $resultado = $conexao->query($sql);
-                $lista = $resultado->fetch();
-                $quantidadependentes = $lista['qtdependentes'];
-
-                echo "<h1>Nome: ".$linha['nome']."</h1>";
-                echo "<h3>Disciplina: ".$linha['email']."</h3>";
-                echo "<h3>R.M.: ".$linha['rm']."</h3>";
-                echo "<h3>Curso: ".$linha['cursoorientador']."</h3>";
-                echo "<h2>Quantidade de documentos pendentes: ".$quantidadependentes."</h2>"
+                <?php
+                    $sql = "SELECT COUNT(*) AS qtdependentes 
+                            FROM tb_documentos 
+                            WHERE status = 'pendente'";
+                    
+                    $resultado = $conexao->query($sql);
+                    $lista = $resultado->fetch();
+                    $quantidadependentes = $lista['qtdependentes'];
                 ?>
+                    <h1><?php echo "Nome:  ".$linha['nome'];""?></h1>
+                    <div class="infos">
+                        <h3><?php echo "Disciplina: ".$linha['email'];""?></h3>
+                        <h3><?php echo "R.M.: ".$linha['rm'];""?></h3>
+                        <h3><?php echo "Curso: ".$linha['cursoorientador'].""?></h3>
+                    </div>
+                    <h2><?php echo "Quantidade de documentos pendentes: ".$quantidadependentes; ?></h2>
             </div>
         </div>
     </main>
