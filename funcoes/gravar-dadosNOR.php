@@ -42,6 +42,12 @@
     $numeroapolice = $_POST["numeroapolice"];
     $nomeseguradora = $_POST["nomeseguradora"];
     $curso = "Desenvolvimento de Software Multiplataforma";
+    include '../classes/Conexao.php';
+
+    $condicao = "SELECT * FROM dadosformnor WHERE id_aluno = $id_aluno";
+    $conexao->query($condicao);
+
+    if (!$condicao){
 
     $sql = "INSERT INTO dadosformnor VALUES (   
         null, $id_aluno, '$horaocorrencia', '$nomedocumento', '$estado', '$nomeempresa', '$cnpj',
@@ -52,8 +58,19 @@
         '$estagiariocep','$estagiariobairro','$estagiariotelefone','$estagiarioemail', '$horarioentrada',
         '$horariosaida','$entradarefeicao','$saidarefeicao','$horassemanais','$comeco','$fim','$numeroapolice',
         '$nomeseguradora');";
-
-    include '../classes/Conexao.php';
-    $conexao->exec($sql);
-    header("Location:formONR.php");
+         $conexao->exec($sql);}
+         else{
+            $sql = "DELETE FROM dadosformnor WHERE id_aluno = $id_aluno";
+            $conexao->exec($sql);
+            $sql = "INSERT INTO dadosformnor VALUES (   
+                null, $id_aluno, '$horaocorrencia', '$nomedocumento', '$estado', '$nomeempresa', '$cnpj',
+                '$departamento', '$emailempresa', '$enderecoempresa', '$bairroempresa', '$cepempresa',
+                '$cidadeempresa','$estadoempresa','$nomerepresentante','$representantecargo','$cpfrepresentante',
+                '$telefonerepresentante','$ra','$semestre','$nomeestagiario','$rgestagiario', '$cidadeestagiario',
+                '$telefoneempresa','$enderecoestagiario','$objetivo','$atividade','$periodo','$descricao',
+                '$estagiariocep','$estagiariobairro','$estagiariotelefone','$estagiarioemail', '$horarioentrada',
+                '$horariosaida','$entradarefeicao','$saidarefeicao','$horassemanais','$comeco','$fim','$numeroapolice',
+                '$nomeseguradora');";
+                 $conexao->exec($sql);}
+    header("Location:../views/form/formONR.php");
 ?>

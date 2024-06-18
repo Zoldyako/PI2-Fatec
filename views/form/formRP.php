@@ -72,7 +72,7 @@
                     <select name="anteriordocs" id="anteriordocs">
                         <option value="" selected>Selecione uma opção</option>
                         <?php
-                            include 'classes/Conexao.php';
+                            include '../../classes/Conexao.php';
                             $sql = "SELECT idrequisicao, nomedocumento, horaocorrencia
                                     FROM dadosformrp
                                     WHERE id_aluno = $id_aluno";
@@ -89,17 +89,19 @@
         </div>
     </div>
     <script>
+       
         function pegarValores(){
-            let nomeestagiario = document.getElementById("nomeestagiario").value
-            let ra = document.getElementById("ra").value
-            let nomeempresa = document.getElementById("nomeempresa").value
-            let nomerepresentante = document.getElementById("nomerepresentante").value
-            let datainicio = document.getElementById("datainicio").value
-            let datatermino = document.getElementById("datatermino").value
-            let formatacao = String(datainicio).split("-")
-            datainicio = formatacao[2]+"/"+formatacao[1]+"/"+formatacao[0]
-            formatacao = String(datatermino).split("-")
-            datatermino = formatacao[2]+"/"+formatacao[1]+"/"+formatacao[0]
+            
+            let nomeestagiario = document.getElementById("nomeestagiario").value;
+            let ra = document.getElementById("ra").value;
+            let nomeempresa = document.getElementById("nomeempresa").value;
+            let nomerepresentante = document.getElementById("nomerepresentante").value;
+            let datainicio = document.getElementById("datainicio").value;
+            let datatermino = document.getElementById("datatermino").value;
+            let formatacao = String(datainicio).split("-");
+            datainicio = formatacao[2]+"/"+formatacao[1]+"/"+formatacao[0];
+            formatacao = String(datatermino).split("-");
+            datatermino = formatacao[2]+"/"+formatacao[1]+"/"+formatacao[0];
             
             let html=`<!DOCTYPE html>
                     <html lang="en">
