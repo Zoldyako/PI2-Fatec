@@ -200,13 +200,13 @@
         
         <div class="atividades">
             <label for="atividade">Atividade:</label>
-            <textarea name="atividade" id="atividade"> <?php echo $lista['atividade'];?></textarea>
+            <textarea name="atividade" id="atividade"maxlength="700"> <?php echo $lista['atividade'];?></textarea>
             <label for="descricao">Descrição da atividade:</label>
-            <textarea name="descricao" id="descricao"> <?php echo $lista['descricao'];?></textarea>
+            <textarea name="descricao" id="descricao"maxlength="700"> <?php echo $lista['descricao'];?></textarea>
             <label for="objetivo">Objetivo ou resultado esperado:</label>
-            <textarea name="objetivo" id="objetivo"> <?php echo $lista['objetivo'];?></textarea>
+            <textarea name="objetivo" id="objetivo"maxlength="700"> <?php echo $lista['objetivo'];?></textarea>
             <label for="periodo">Período previsto (inicio e término):</label>
-            <textarea name="periodo" id="periodo"> <?php echo $lista['periodo'];?></textarea>
+            <textarea name="periodo" id="periodo"maxlength="700"> <?php echo $lista['periodo'];?></textarea>
         </div>
             <input type="submit" value="Enviar" onclick="pegarValoresFormulario()" name="gravarnobd" class="primeiro">
     </form>

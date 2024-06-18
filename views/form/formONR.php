@@ -189,15 +189,15 @@
                     </div>
                     <div class="atividades">
                         <label for="atividade">Atividade:</label>
-                        <textarea name="atividade" id="atividade"></textarea>
+                        <textarea name="atividade" id="atividade"maxlength="700"></textarea>
                         <label for="descricao">Descrição da atividade:</label>
-                        <textarea name="descricao" id="descricao"></textarea>
+                        <textarea name="descricao" id="descricao"maxlength="700"></textarea>
                 
                         <label for="objetivo">Objetivo ou resultado esperado:</label>
-                        <textarea name="objetivo" id="objetivo"></textarea>
+                        <textarea name="objetivo" id="objetivo"maxlength="700"></textarea>
                 
                         <label for="periodo">Período previsto (inicio e término):</label>
-                        <textarea name="periodo" id="periodo"></textarea>
+                        <textarea name="periodo" id="periodo"maxlength="700"></textarea>
                     </div>
                         <input type="submit" value="Enviar" id="btn-enviar" onclick="pegarValoresFormulario()" class="primeiro">
                 </form>

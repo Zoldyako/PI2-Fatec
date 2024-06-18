@@ -44,7 +44,10 @@
     $numeroapolice = $_POST["numeroapolice"];
     $nomeseguradora = $_POST["nomeseguradora"];
     $curso = "Desenvolvimento de Software Multiplataforma";
-
+    include '../classes/Conexao.php';
+    $condicao = "SELECT * FROM dadosformnor WHERE id_aluno = $id_aluno";
+    $conexao->query($condicao);
+    if (!$conexao){
     $sql = "INSERT INTO dadosformor VALUES (
             null,$id_aluno,'$horaocorrencia','$nomedocumento','$estado','$nomeempresa','$cnpj',
             '$departamento','$emailempresa','$enderecoempresa','$bairroempresa','$cepempresa',
@@ -54,9 +57,21 @@
             '$estagiariocep','$estagiariobairro','$estagiariotelefone','$estagiarioemail', '$horarioentrada',
             '$horariosaida','$entradarefeicao','$saidarefeicao','$horassemanais','$comeco','$fim','$salario',
             '$salarioextenso','$numeroapolice','$nomeseguradora'
-        );";
+        );";} else{
+            $sql = "DELETE FROM dadosformor WHERE id_aluno = $id_aluno";
+            $conexao->exec($sql);
+            $sql = "INSERT INTO dadosformor VALUES (
+                null,$id_aluno,'$horaocorrencia','$nomedocumento','$estado','$nomeempresa','$cnpj',
+                '$departamento','$emailempresa','$enderecoempresa','$bairroempresa','$cepempresa',
+                '$cidadeempresa','$estadoempresa','$nomerepresentante','$representantecargo','$cpfrepresentante',
+                '$telefonerepresentante','$ra','$semestre','$nomeestagiario','$rgestagiario', '$cidadeestagiario',
+                '$telefoneempresa','$enderecoestagiario','$objetivo','$atividade','$periodo','$descricao',
+                '$estagiariocep','$estagiariobairro','$estagiariotelefone','$estagiarioemail', '$horarioentrada',
+                '$horariosaida','$entradarefeicao','$saidarefeicao','$horassemanais','$comeco','$fim','$salario',
+                '$salarioextenso','$numeroapolice','$nomeseguradora'
+            );";}
 
-    include '../classes/Conexao.php';
+  
     $conexao->exec($sql);
-    header("Location:formOR.php");
+    header("Location:../views/form/formOR.php");
 ?>
