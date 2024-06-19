@@ -6,8 +6,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../estilo/nav-bar.css">
+    <link rel="stylesheet" href="../../estilo/side-bar.css">
+    <link rel="stylesheet" href="../../estilo/style.css">
+    <link rel="stylesheet" href="../../estilo/form/formRF.css">
     <title>Relatório Parcial</title>
 </head>
 <body>
@@ -19,7 +26,7 @@
         $resultado = $conexao->query($sql);
         $lista = $resultado->fetch();
     ?>
-    <form action="../../funcoes/gravar-dadosRF.php" method="post">
+    <form action="../../funcoes/gravar-dadosRF.php" method="post" style="display:flex;flex-direction:column;">
         <input type="hidden" name="nomedocumento" value="Relatório final">
         <input type="hidden" name="id_aluno" value="<?php echo $idaluno?>">
             <label for="nomeestagiario">Nome do estagiário:</label>
@@ -272,30 +279,7 @@
 
             var novaJanela = window.open();
             novaJanela.document.write(html);
-
-            var imagem1 = document.createElement('img');
-            var imagem2 = document.createElement('img');
-
-            var totalImagens = 2;
-            var imagensCarregadas = 0;
-
-            function verificarCarregamento() {
-                imagensCarregadas++;
-                if (imagensCarregadas === totalImagens) {
-                    novaJanela.print();
-                }
-            }
-            imagem1.onload = verificarCarregamento;
-            imagem2.onload = verificarCarregamento;
-
-            // Defina os src após atribuir onload handlers
-            imagem1.src = "../marcadagua1.png";
-            imagem2.src = "../marcadagua2.png";
-
-            // Adicione as imagens ao documento da nova janela
-            novaJanela.document.body.appendChild(imagem1);
-            novaJanela.document.body.appendChild(imagem2);
-
+            novaJanela.print();
             document.getElementById("formulario").submit();
         }
     </script>

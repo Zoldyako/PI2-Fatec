@@ -13,14 +13,28 @@
     $mesatual =$_POST['mesatual'];
     $anoatual =$_POST['anoatual'];
 
+
+    include '../classes/Conexao.php';
+    $condicao = "SELECT * FROM dadosformrf WHERE id_aluno = $id_aluno";
+    $conexao->query($condicao);
+    if (!$conexao){
     $sql = "INSERT INTO dadosformrf VALUES (
             null,$id_aluno,'$horaocorrencia','$nomedocumento',
             '$nomeestagiario','$ra','$nomeempresa','$nomerepresentante',
             '$datainicio','$datatermino', '$diaatual', '$mesatual','$anoatual'
             );";
-    
-    include '../classes/Conexao.php';
+    }
+    else{ 
+        $sql = "DELETE FROM dadosformrf WHERE id_aluno = $id_aluno";
+        $conexao->exec($sql);
+        
+        $sql = "INSERT INTO dadosformrf VALUES (
+        null,$id_aluno,'$horaocorrencia','$nomedocumento',
+        '$nomeestagiario','$ra','$nomeempresa','$nomerepresentante',
+        '$datainicio','$datatermino', '$diaatual', '$mesatual','$anoatual'
+        );";} 
+  
     
     $conexao->exec($sql);
-    header("Location:formRF.php");
+    header("Location:../views/form/formRF.php");
 ?>

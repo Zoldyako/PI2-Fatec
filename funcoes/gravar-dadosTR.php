@@ -12,14 +12,27 @@
     $nomeestagiario = $_POST['nomeestagiario'];
     $nomecurso = $_POST['nomecurso'];
     $motivo = $_POST['motivo'];
+    include "../classes/Conexao.php";
 
+    $condicao = "SELECT * FROM dadosformtr WHERE id_aluno = $id_aluno";
+    $conexao->query($condicao);
+    if (!$conexao){
+        $sql = "INSERT INTO dadosformtr VALUES (
+            null, $id_aluno, '$horaocorrencia', '$nomedocumento', '$diaatual',
+            '$mesatual', '$anoatual', '$datarescisao', '$datatermino','$nomeempresa',
+            '$nomeestagiario', '$nomecurso', '$motivo'
+            );";
+    }
+    else{
+        $sql = "DELETE FROM dadosformtr WHERE id_aluno = $id_aluno";
+        $conexao->exec($sql);
     $sql = "INSERT INTO dadosformtr VALUES (
             null, $id_aluno, '$horaocorrencia', '$nomedocumento', '$diaatual',
             '$mesatual', '$anoatual', '$datarescisao', '$datatermino','$nomeempresa',
             '$nomeestagiario', '$nomecurso', '$motivo'
             );";
-
-    include "../classes/Conexao.php";
+    }
+    
     $conexao->exec($sql);
-    header("Location:formTR.php");
+    header("Location:../views/form/formTR.php");
 ?>

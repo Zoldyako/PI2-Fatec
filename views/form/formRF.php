@@ -65,13 +65,13 @@
                 <input type="date" name="datatermino" id="datatermino">
             
                 <label for="diaatual">Dia atual do documento:</label>
-                <input type="text" name="diaatual" id="diaatual">
+                <input type="text" name="diaatual" id="diaatual" placeholder="ex: 15">
             
                 <label for="mesatual">Nome do mês atual do documento:</label>
-                <input type="text" name="mesatual" id="mesatual">
+                <input type="text" name="mesatual" id="mesatual" placeholder="ex: Janeiro">
             
                 <label for="anoatual">Ano atual do documento:</label>
-                <input type="text" name="anoatual" id="anoatual">
+                <input type="text" name="anoatual" id="anoatual" placeholder="ex: 2020">
 
                 <input type="submit" value="Gerar relatório" class="gerar-relatorio" onclick="pegarValores()" >
             </form>

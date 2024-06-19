@@ -7,9 +7,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../estilo/nav-bar.css">
+    <link rel="stylesheet" href="../../estilo/side-bar.css">
+    <link rel="stylesheet" href="../../estilo/style.css">
+    <link rel="stylesheet" href="../../estilo/form/formTR.css">
+    <title>Termo de rescisão</title>
 </head>
 <body>
     <?php include "../../classes/Conexao.php";
@@ -20,7 +27,7 @@
         $resultado = $conexao->query($sql);
         $lista = $resultado->fetch();
     ?>
-    <form action="../../funcoes/gravar-dadosTR.php" method="post" name="formulario">
+    <form action="../../funcoes/gravar-dadosTR.php" method="post" name="formulario" style="display:flex;flex-direction:column;">
         <input type="hidden" name="id_aluno" value="<?php echo $id_aluno;?>">
         
         <input type="hidden" name="nomedocumento" value="Termo de rescisão">

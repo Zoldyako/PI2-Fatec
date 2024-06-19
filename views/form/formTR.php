@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../../estilo/side-bar.css">
     <link rel="stylesheet" href="../../estilo/style.css">
     <link rel="stylesheet" href="../../estilo/form/formTR.css">
-    <title>Document</title>
+    <title>Termo de rescisão</title>
 </head>
 <body>
     <header>
@@ -48,13 +48,13 @@
                     <input type="hidden" name="nomedocumento" value="Termo de rescisão">
                 
                     <label for="diaatual">Dia atual do documento:</label>
-                    <input type="text" name="diaatual" id="diaatual">
+                    <input type="text" name="diaatual" id="diaatual" placeholder="ex: 20">
                 
                     <label for="mesatual">Nome do mês atual do documento:</label>
-                    <input type="text" name="mesatual" id="mesatual">
+                    <input type="text" name="mesatual" id="mesatual" placeholder="ex: Agosto">
                 
                     <label for="anoatual">Ano atual do documento:</label>
-                    <input type="text" name="anoatual" id="anoatual">
+                    <input type="text" name="anoatual" id="anoatual" placeholder="ex: 2012">
                 
                     <label for="datarescisao">Data da rescisão:</label>
                     <input type="date" name="datarescisao" id="datarescisao">
