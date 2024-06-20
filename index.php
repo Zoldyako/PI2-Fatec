@@ -1,12 +1,34 @@
 <?php
-    include("classes/Conexao.php");
-    include("views/usuarios/usuario-verifica.php");
+include("classes/Conexao.php");
+include("views/usuarios/usuario-verifica.php");
 
-    if(isset($_GET['erro'])) { $erro = $_GET['erro']; } else { $erro = null; }
+if (isset(($_SESSION['id']))) {
+    $sql = "SELECT * 
+        FROM tb_usuarios 
+        WHERE id = '" . $_SESSION['id'] . "';";
+
+    $resultado = $conexao->query($sql);
+    $linha = $resultado->fetch();
+
+    // Direciona baseado no tipo
+    if ($linha['tipo'] == 'aluno') {
+        header("Location:views/alunos/aluno-perfil.php");
+    } else if ($linha['tipo'] == 'professor') {
+        header("Location:views/professores/professor.php");
+    }
+}
+
+if (isset($_GET['erro'])) {
+    $erro = $_GET['erro'];
+} else {
+    $erro = null;
+}
+
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">    
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +48,7 @@
             <h2>Itapira</h2>
         </div>
     </header>
-    
+
     <main>
         <h1>Sistema de Estágio Fatec Itapira</h1>
         <form action="views/usuarios/usuario-login.php" method="POST">
@@ -39,7 +61,7 @@
                 <label for="usuario">Senha</label><br>
                 <input type="password" class="input" name="senha" placeholder="Digite sua senha">
             </div>
-            
+
             <span style="color:red;"><?php echo $erro; ?></span>
 
             <div class="form-group">
