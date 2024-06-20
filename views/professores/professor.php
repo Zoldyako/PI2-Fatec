@@ -29,9 +29,15 @@
 </head> 
 <body>
     <header>
-        <div class="logo">
+        <div class="logo opt">
             <h1>Fatec</h1>
             <h2>Itapira</h2>
+        </div>
+        <div class="perfil opt">
+            <ul>
+                <li><a href="#">Perfil de <?=$linha['nome']?></a></li>
+                <li><a href="../usuarios/usuario-logout.php">Sair</a></li>
+            </ul>
         </div>
     </header>
 
@@ -39,22 +45,16 @@
         <div class="sidebar-container">
             <div class="sidebar">
                 <ul>
-                    <a href="#" class="sidebar-opt"><li>Perfil do Professor</li></a>
                     <a href="professor-pendente.php" class="sidebar-opt"><li>Documentos Pendentes</li></a>
                     <a href="professor-avaliados.php" class="sidebar-opt"><li>Documentos Avaliados</li></a>
                     <a href="professor-pendente-assinado.php" class="sidebar-opt"><li>Assinados Pendentes</li></a>
                     <a href="professor-analisado-assinado.php" class="sidebar-opt"><li>Assinados avaliados</li></a>
                 </ul>
             </div>
-            <div>           
-                <ul>
-                    <a href="../usuarios/usuario-logout.php"><li>Sair</li></a>
-                </ul>
-            </div>
         </div>
         <div class="container-content">
             <div class="content">
-                <h2>Bem vindo <?=$linha['nome']?></h2>
+                <h1>Bem vindo <?=$linha['nome']?></h1>
                 <?php
                     $sql = "SELECT COUNT(*) AS qtdependentes 
                             FROM tb_documentos 
@@ -64,7 +64,6 @@
                     $lista = $resultado->fetch();
                     $quantidadependentes = $lista['qtdependentes'];
                 ?>
-                    <h1><?php echo "Nome:  ".$linha['nome'];""?></h1>
                     <div class="infos">
                         <h3><?php echo "Disciplina: ".$linha['email'];""?></h3>
                         <h3><?php echo "R.M.: ".$linha['rm'];""?></h3>

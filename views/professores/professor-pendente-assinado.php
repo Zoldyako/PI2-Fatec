@@ -24,10 +24,16 @@
     <title>Página Professor</title>
 </head> 
 <body">
-<header>
-        <div class="logo">
+    <header>
+        <div class="logo opt">
             <h1>Fatec</h1>
             <h2>Itapira</h2>
+        </div>
+        <div class="perfil opt">
+            <ul>
+                <li><a href="../professores/professor.php">Perfil de <?=$linha['nome']?></a></li>
+                <li><a href="../usuarios/usuario-logout.php">Sair</a></li>
+            </ul>
         </div>
     </header>
 
@@ -35,16 +41,10 @@
         <div class="sidebar-container">
             <div class="sidebar">
                 <ul>
-                    <a href="professor.php" class="sidebar-opt"><li>Perfil do Professor</li></a>
                     <a href="professor-pendente.php" class="sidebar-opt"><li>Documentos Pendentes</li></a>
                     <a href="professor-avaliados.php" class="sidebar-opt"><li>Documentos Avaliados</li></a>
                     <a href="#" class="sidebar-opt"><li>Assinados Pendentes</li></a>
                     <a href="professor-analisado-assinado.php" class="sidebar-opt"><li>Assinados avaliados</li></a>
-                </ul>
-            </div>
-            <div>           
-                <ul>
-                    <a href="../usuarios/usuario-logout.php"><li>Sair</li></a>
                 </ul>
             </div>
         </div>

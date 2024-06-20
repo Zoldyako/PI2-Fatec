@@ -29,27 +29,26 @@
 </head> 
 <body>
     <header>
-        <div class="logo">
+        <div class="logo opt">
             <h1>Fatec</h1>
             <h2>Itapira</h2>
+        </div>
+        <div class="perfil opt">
+            <ul>
+                <li><a href="aluno-perfil.php">Perfil de <?=$linha['nome']?></a></li>
+                <li><a href="../usuarios/usuario-logout.php">Sair</a></li>
+            </ul>
         </div>
     </header>
     <main>
         <div class="sidebar-container">
             <div class="sidebar">
                 <ul>
-                    <a href="aluno-perfil.php" class="sidebar-opt"><li>Perfil do Aluno</li></a>
                     <a href="#" class="sidebar-opt"><li>Gerar Documento</li></a>
                     <a href="aluno-novo-estagio.php" class="sidebar-opt"><li>Solicitar Estágio</li></a>
                     <a href="aluno-acompanhar.php" class="sidebar-opt"><li>Acompanhar Processos</li></a>
                     <a href="aluno-assinado.php" class="sidebar-opt"><li>Documentos Assinados</li></a>
                 </ul>
-            </div>
-            
-            <div>
-                <ul>
-                    <a href="../usuarios/usuario-logout.php"><li>Sair</li></a>
-                </ul> 
             </div>
         </div>
 
