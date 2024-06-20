@@ -14,45 +14,45 @@ select {
 }
 
 
-.item {
-    display: flex;
-    align-items: center;
-    margin: 16px 0;
-    border-radius: 4px;
-    background-color: rgba(138, 28, 28, 0.205);
-}
-
-
-.item p {
-    font-size: 12pt;
-    margin-left: 12px;
-    margin-right: 4px;
-}
-
-
-.item span {
-    background-color: rgb(255, 230, 230);
-    padding: 2px 8px;
-}
-
-
-button, input {
+.btn-filtrar {
     background-color: rgb(180 50 50);
     color: white;
     font-size: 12pt;
     border: 0;
     border-radius: 2px;
     max-width: fit-content;
-    margin: 10px 0;
-    padding: 8px 16px;
+    padding: 8px;
+}
+
+
+table, th, td {
+    border: 1px solid rgb(212, 153, 153);
+    border-collapse: collapse;
+    padding: 4px 8px;
+    text-align: left;
+    margin-top: 16px;
+}
+
+
+td {
+    font-size: 14pt;
+    padding: 8px;
+}
+
+
+tr:nth-child(even) {
+    background-color: rgb(236, 210, 210);
+}
+
+
+table button, 
+table input {
+    background-color: rgb(180 50 50);
+    color: white;
+    font-size: 12pt;
+    border: 0;
+    border-radius: 2px;
+    padding: 4px 8px;
+    max-width: fit-content;
     cursor: pointer;
-}
-
-.item1 {
-    margin-right: 36px;
-}
-
-
-.comentario {
-    margin-left: 36px;
 }
