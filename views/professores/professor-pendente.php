@@ -66,88 +66,100 @@
                     <input type="submit" value="Filtrar">
                 </form>
                 <?php
-                if (isset($_POST['filtro'])) {
-                    if ($_POST['filtro'] == 'termocompromisso.pdf') {
-                    $sql = "SELECT * 
-                            FROM `tb_documentos` 
-                            WHERE status = 'pendente' 
-                            ORDER BY CASE 
-                            WHEN nome = 'termocompromisso.pdf' 
-                            THEN 0 ELSE 1 END, nome;";
-                
-                
-                    } elseif ($_POST['filtro'] == 'relatoriofinal.pdf') {
+                    if (isset($_POST['filtro'])) {
+                        if ($_POST['filtro'] == 'termocompromisso.pdf') {
                         $sql = "SELECT * 
                                 FROM `tb_documentos` 
                                 WHERE status = 'pendente' 
                                 ORDER BY CASE 
-                                WHEN nome = 'relatoriofinal.pdf' 
+                                WHEN nome = 'termocompromisso.pdf' 
                                 THEN 0 ELSE 1 END, nome;";
-                
-                    } elseif ($_POST['filtro'] == 'relatorioparcial.pdf') {
-                        $sql = "SELECT * 
-                                FROM `tb_documentos` 
-                                WHERE status = 'pendente' 
-                                ORDER BY CASE 
-                                WHEN nome = 'relatorioparcial.pdf' 
-                                THEN 0 ELSE 1 END, nome;";
-                
-                    } elseif ($_POST['filtro'] == 'termorescisão.pdf') {
-                        $sql = "SELECT * 
-                                FROM `tb_documentos` 
-                                WHERE status = 'pendente' 
-                                ORDER BY CASE 
-                                WHEN nome = 'termorescisão.pdf' 
-                                THEN 0 ELSE 1 END, nome;";
-                
-                    } elseif ($_POST['filtro'] == 'null' || $_POST['filtro'] == 'sem' ) {
+                    
+                    
+                        } elseif ($_POST['filtro'] == 'relatoriofinal.pdf') {
+                            $sql = "SELECT * 
+                                    FROM `tb_documentos` 
+                                    WHERE status = 'pendente' 
+                                    ORDER BY CASE 
+                                    WHEN nome = 'relatoriofinal.pdf' 
+                                    THEN 0 ELSE 1 END, nome;";
+                    
+                        } elseif ($_POST['filtro'] == 'relatorioparcial.pdf') {
+                            $sql = "SELECT * 
+                                    FROM `tb_documentos` 
+                                    WHERE status = 'pendente' 
+                                    ORDER BY CASE 
+                                    WHEN nome = 'relatorioparcial.pdf' 
+                                    THEN 0 ELSE 1 END, nome;";
+                    
+                        } elseif ($_POST['filtro'] == 'termorescisão.pdf') {
+                            $sql = "SELECT * 
+                                    FROM `tb_documentos` 
+                                    WHERE status = 'pendente' 
+                                    ORDER BY CASE 
+                                    WHEN nome = 'termorescisão.pdf' 
+                                    THEN 0 ELSE 1 END, nome;";
+                    
+                        } elseif ($_POST['filtro'] == 'null' || $_POST['filtro'] == 'sem' ) {
+                            $sql = "SELECT * 
+                                    FROM tb_documentos 
+                                    WHERE status = 'pendente';";
+                        }
+                    
+                    } else {
                         $sql = "SELECT * 
                                 FROM tb_documentos 
                                 WHERE status = 'pendente';";
                     }
-                
-                } else {
-                    $sql = "SELECT * 
-                            FROM tb_documentos 
-                            WHERE status = 'pendente';";
-                }
-                
-                $resultado = $conexao->query($sql);
-                $lista = $resultado->fetchAll();
-                
-                foreach ($lista as $linha) {
-                    $alunoid = $linha['aluno_id'];
-                    $sql1 = "SELECT nome
-                            FROM tb_alunos
-                            WHERE usuario_id = $alunoid";
-                
-                    $resultado = $conexao->query($sql1);
-                    $resultado1 = $resultado->fetch();
-                    $nomealuno = $resultado1['nome'];
-                ?>
-                    <div class="documento">
-                            <div class="doc">
-                                <p><?php echo $nomealuno; ?> </p>
-                                <p><?php echo $linha['nome']; ?></p>
-                                <form action="../../funcoes/mostrar-pdf.php" method="post" target="_blank">
-                                    <input type="hidden" name="id_documento" value="<?php echo $linha['id']?>">
-                                    <input type="submit" value="documento" >
-                                </form>
-                            </div>
-                        <form action="../../funcoes/avaliar.php" method="post">
+                    
+                    $resultado = $conexao->query($sql);
+                    $lista = $resultado->fetchAll();
+                ?> 
+                <table>
+                    <tr>
+                        <th>Aluno</th>
+                        <th>Documento</th>
+                        <th>Documento</th>
+                        <th>Ações</th>
+                    </tr>
+                    <?php foreach ($lista as $linha):
+                        $alunoid = $linha['aluno_id'];
+                        $sql1 = "SELECT nome FROM tb_alunos WHERE usuario_id = $alunoid";
+                        $resultado = $conexao->query($sql1);
+                        $resultado1 = $resultado->fetch();
+                        $nomealuno = $resultado1['nome'];
+                    ?>
+                    <tr>    
+                        <td><?php echo $nomealuno; ?></td>
+                        <td><?php echo $linha['nome']; ?></td>
+                        <td><form action="../../funcoes/mostrar-pdf.php" method="post" target="_blank">
+                                <input type="hidden" name="id_documento" value="<?php echo $linha['id']?>">
+                                <input type="submit" value="documento" >
+                            </form> 
+                        </td>
+                        <td>
+                            <form action="../../funcoes/avaliar.php" method="post">
                                 <input type="hidden" name="id_documento" value="<?php echo $linha['id']?>">
                                 <div class="avaliar">
-                                    <label for="aprovar">Aprovar</label>
-                                    <input type="radio" name="avaliar" id="aprovar" value="aprovar">
-                                    <label for="aprovar">Reprovar</label>
-                                    <input type="radio" name="avaliar" id="reprovar" value="reprovar">
+                                    <div>
+                                        <input type="radio" name="avaliar" id="aprovar" value="aprovar">
+                                        <label for="aprovar">Aprovar</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="avaliar" id="reprovar" value="reprovar">
+                                        <label for="aprovar">Reprovar</label>
+                                    </div>
+                                    <div>
+                                        <label for="motivo">Comentário: </label>
+                                        <textarea name="motivo" id="motivo"></textarea>
+                                    </div>
+                                    <input type="submit" value="Avaliar" id="btn-avaliar">
                                 </div>
-                            <label for="motivo">Comentário:</label>
-                            <textarea name="motivo" id="motivo"></textarea>
-                            <input type="submit" value="Avaliar">
-                        </form>
-                    </div> <?php 
-                } ?>
+                            </form>
+                        </td>
+                    </tr>
+                    <?php endforeach ?>
+                </table>
             </div>
         </div>
     </main>
