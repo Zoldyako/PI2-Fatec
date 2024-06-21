@@ -6,8 +6,8 @@ Link para o Figma: https://figma.com/board/4basmcLqBrotLi9yXYwnah/PI2---Diagrama
 
 Membros do Grupo:
 
-    José Victor
-    Guilherme Antonio
-    Guilherme Paulino
-    Alexandre
-    Yuri
+    - [José Victor](https://github.com/Zoldyako)
+    - [Guilherme Antonio](https://github.com/guilherme3oliveira)
+    - [Guilherme Paulino](https://github.com/GuilhermePaulinoRibeiro)
+    - [Alexandre](https://github.com/xandoliveira2)
+    - [Yuri Machado](https://github.com/YuriMachad)
