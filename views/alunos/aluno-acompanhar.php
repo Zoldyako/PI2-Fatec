@@ -119,17 +119,6 @@
                         <th>Ações</td>
                     </tr>
                     <?php foreach ($lista as $linha):?>
-                    <!-- <div class="item">
-                        <p>Nome do arquivo: <?php echo $linha['nome']?></p>   
-                        <a href='../documento/doc_ver_processo.php?id=<?php echo $linha["id"]?>' target='_blank'><button class="item1">Baixar documento</button></a>                                
-                        <p>Status: <span><?php echo $linha['status'] ?></span></p>
-                        <form action="" method="post">
-                            <input type="hidden" name="<?php echo $linha['id']; ?>" value="<?php echo $linha['comentario'] ?>" id="<?php echo $linha['id']; ?>"> 
-                            <?php if ($linha['comentario']!=NULL) { ?>
-                                <input type="submit" class="comentario" value="Comentário" onclick="exibir(<?php echo $linha['id']; ?>)"> <?php 
-                            } ?>
-                        </form>
-                    </div> -->
                         <tr>
                             <td><?php echo $linha['nome']?></td>
                             <td><span><?php echo $linha['status']?></span></td>
