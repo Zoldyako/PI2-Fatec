@@ -26,9 +26,15 @@
 </head> 
 <body>
     <header>
-        <div class="logo">
+        <div class="logo opt">
             <h1>Fatec</h1>
             <h2>Itapira</h2>
+        </div>
+        <div class="perfil opt">
+            <ul>
+                <li><a href="../professores/professor.php">Perfil de <?=$linha['nome']?></a></li>
+                <li><a href="../usuarios/usuario-logout.php">Sair</a></li>
+            </ul>
         </div>
     </header>
 
@@ -36,16 +42,10 @@
         <div class="sidebar-container">
             <div class="sidebar">
                 <ul>
-                    <a href="professor.php" class="sidebar-opt"><li>Perfil do Professor</li></a>
                     <a href="professor-pendente.php" class="sidebar-opt"><li>Documentos Pendentes</li></a>
                     <a href="professor-avaliados.php" class="sidebar-opt"><li>Documentos Avaliados</li></a>
                     <a href="professor-pendente-assinado.php" class="sidebar-opt"><li>Assinados Pendentes</li></a>
                     <a href="#" class="sidebar-opt"><li>Assinados avaliados</li></a>
-                </ul>
-            </div>
-            <div>           
-                <ul>
-                    <a href="../usuarios/usuario-logout.php"><li>Sair</li></a>
                 </ul>
             </div>
         </div>
@@ -257,30 +257,38 @@
                 }
                 $resultado = $conexao->query($sql);
                 $lista = $resultado->fetchAll();
-                
-                foreach ($lista as $linha){
-                    $alunoid = $linha['aluno_id'];
-                    $sql1 = "SELECT nome
-                            FROM tb_alunos
-                            WHERE usuario_id = $alunoid";
-                
-                    $resultado = $conexao->query($sql1);
-                    $resultado1 = $resultado->fetch();
-                    $nomealuno = $resultado1['nome'];
-                
                 ?>
-                <div class="documento">
-                    <p><?php echo $nomealuno; ?></p>
-                    <p><?php echo $linha['nome']; ?></p>
-                
-                    <form action="../../funcoes/mostrar-pdf.php" method="post" target="_blank">
-                        <input type="hidden" name="id_documento" value="<?php echo $linha['id']?>">
-                        <input type="submit" value="documento" id="doc-btn">
-                    </form>
-                    <p><?php echo $linha['status']?> </p>
-                </div>
-                <?php
-                } ?>
+
+                <table>
+                    <tr>
+                        <th>Aluno</th>
+                        <th>Status</th>
+                        <th>Documento</th>
+                        <th>Baixar</th>
+                    </tr>
+                    <?php foreach ($lista as $linha):
+                        $alunoid = $linha['aluno_id'];
+                        $sql1 = "SELECT nome
+                                FROM tb_alunos
+                                WHERE usuario_id = $alunoid";
+                    
+                        $resultado = $conexao->query($sql1);
+                        $resultado1 = $resultado->fetch();
+                        $nomealuno = $resultado1['nome'];
+                    
+                    ?>
+                        <tr>
+                            <td><?php echo $nomealuno;?></td>
+                            <td><?php echo $linha['status']?></td>
+                            <td><?php echo $linha['nome'];?></td>
+                            <td><form action="../../funcoes/mostrar-pdf.php" method="post" target="_blank">
+                                    <input type="hidden" name="id_documento" value="<?php echo $linha['id']?>">
+                                    <input type="submit" value="documento" id="doc-btn">
+                                </form>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
+                </table>
             </div>
         </div>
     </main>

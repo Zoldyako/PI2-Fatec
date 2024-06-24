@@ -28,32 +28,32 @@
 </head>
 <body>
     <header>
-        <div class="logo">
+        <div class="logo opt">
             <h1>Fatec</h1>
             <h2>Itapira</h2>
+        </div>
+        <div class="perfil opt">
+            <ul>
+                <li><a href="aluno-perfil.php">Perfil de <?=$linha['nome']?></a></li>
+                <li><a href="../usuarios/usuario-logout.php">Sair</a></li>
+            </ul>
         </div>
     </header>
     <main>
         <div class="sidebar-container">
             <div class="sidebar">
                 <ul>
-                    <a href="aluno-perfil.php" class="sidebar-opt"><li>Perfil do Aluno</li></a>
                     <a href="aluno-gerar-documento.php" class="sidebar-opt"><li>Gerar Documento</li></a>
                     <a href="aluno-novo-estagio.php" class="sidebar-opt"><li>Solicitar Estágio</li></a>
                     <a href="#" class="sidebar-opt"><li>Acompanhar Processos</li></a>
                     <a href="aluno-assinado.php" class="sidebar-opt"><li>Documentos Assinados</li></a>
                 </ul>
             </div>
-            <div>
-                <ul>
-                    <a href="../usuarios/usuario-logout.php"><li>Sair</li></a>
-                </ul>
-            </div>
         </div>
             
         <div class="container-content">
             <div class="content">
-                <h2>Acompanhe abaixo avaliações sobre seus documentos enviados para o professor</h2>
+                <h1>Avaliações dos documentos enviados ao professor</h1>
 
                 <form action="aluno-acompanhar.php" method="post">
                     <label for="filtro">Filtrar por:</label>
@@ -65,8 +65,10 @@
                         <option value="termorescisão.pdf">Termo de rescisão</option>
                         <option value="sem">Retirar filtro</option>
                     </select> 
-                    <input type="submit" value="Filtrar">
-                </form> <?php 
+                    <input type="submit" value="Filtrar" class="btn-filtrar">
+                </form> 
+                
+                <?php
                     if (isset($_POST['filtro'])) {
                         
                         if ($_POST['filtro'] == 'termocompromisso.pdf') {
@@ -103,33 +105,36 @@
                                     WHERE aluno_id = $id;";
                         }
                     
-                    } else { 
-                        $sql = "SELECT * 
-                                FROM tb_documentos 
-                                WHERE aluno_id = $id;";
-                    }
+                    } else { $sql = "SELECT * FROM tb_documentos WHERE aluno_id = $id;"; }
                         
                     $resultado = $conexao->query($sql);
                     $lista = $resultado->fetchAll();
+                ?>
 
-                    foreach ($lista as $linha) { ?>
-                        <div class="item">
-                            <p>Nome do arquivo: <?php echo $linha['nome']?></p>   
-                            <a href='../documento/doc_ver_processo.php?id=<?php echo $linha["id"]?>' target='_blank'>
-                                <button class="item1">Baixar documento</button>
-                            </a>                                
-                            <p>Status: <span><?php echo $linha['status'] ?></span></p>
-                            <form action="" method="post">
-                                <input type="hidden" name="<?php echo $linha['id']; ?>" value="<?php echo $linha['comentario'] ?>" id="<?php echo $linha['id']; ?>"> 
-                                <?php 
-                                if ($linha['comentario']!=NULL) { ?>
-                                    <input type="submit" class="comentario" value="Comentário" onclick="exibir(<?php echo $linha['id']; ?>)"> <?php 
-                                } ?>
-                            </form>
-                        </div> <?php 
-                    } ?>        
-                </div>
+                <table>
+                    <tr>
+                        <th>Nome do Arquivo</td>
+                        <th>Status</th>
+                        <th>Comentário</th>
+                        <th>Ações</td>
+                    </tr>
+                    <?php foreach ($lista as $linha):?>
+                        <tr>
+                            <td><?php echo $linha['nome']?></td>
+                            <td><span><?php echo $linha['status']?></span></td>
+                            <td><form action="" method="post">
+                                    <input type="hidden" name="<?php echo $linha['id']; ?>" value="<?php echo $linha['comentario'] ?>" id="<?php echo $linha['id']; ?>"> 
+                                    <?php 
+                                    if ($linha['comentario']!=NULL) { ?>
+                                        <input type="submit" class="comentario" value="Comentário" onclick="exibir(<?php echo $linha['id']; ?>)"> <?php 
+                                    } ?>
+                            </form></td>
+                            <td><a href='../documento/doc_ver_processo.php?id=<?php echo $linha["id"]?>' target='_blank'><button class="item1">Baixar documento</button></a></td>
+                        </tr> 
+                    <?php endforeach ?>
+                </table>   
             </div>
+        </div>
 
         <script>
             function exibir(id) {
