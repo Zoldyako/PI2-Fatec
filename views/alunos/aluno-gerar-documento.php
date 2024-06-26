@@ -53,7 +53,6 @@
         </div>
 
         <div class="container-content">
-            <h2>Gerar novo documento</h2>
             <div class="content">
                 
                 <div class="instrucoes">

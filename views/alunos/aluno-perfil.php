@@ -61,7 +61,7 @@
                     <h2><?php echo "Disciplina: ".$linha['curso'].""; ?></h2>
                 </div>
 
-                <div class="upload-doc">
+                <!--<div class="upload-doc">
                     <h1>Upload de Documento</h1>
                     
                     <form action="upload.php" method="POST" enctype="multipart/form-data">
@@ -86,7 +86,7 @@
                         <button onclick="obterValorSelect()"> Exibir formulário</button>
                         <button class="close">Exlcuir</button>
                     </div>  
-                </div>
+                </div> -->
             </div> 
         </div>        
     </main>
