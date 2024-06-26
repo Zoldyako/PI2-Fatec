@@ -51,7 +51,7 @@
         </div>
         <div class="container-content">
             <div class="content">
-                <h2>Documentos pendentes: </h2>
+                <h2>Documentos assinados aprovados: </h2>
                 <?php
                 if (!isset($_POST['filtro'])) {
                     echo '          <form action="professor-avaliados.php" method="post">';

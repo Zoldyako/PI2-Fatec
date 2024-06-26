@@ -59,7 +59,7 @@
                     <li>OBS: caso vá mandar documento já com as assinaturas, selecionar a caixinha "assinatura".</li>
                 </ol>
                 <h1>Upload de Documento</h1>
-                <form action="upload.php" method="POST" enctype="multipart/form-data">
+                <form action="../../funcoes/upload.php" method="POST" enctype="multipart/form-data">
                     <label for="documento">Selecione um arquivo PDF:</label><br>
                     <input type="file" name="documento" accept="application/pdf" required id="documento">
                     <br><br>

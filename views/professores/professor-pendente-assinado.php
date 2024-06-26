@@ -50,7 +50,7 @@
         </div>
         <div class="container-content">
             <div class="content">
-                <h2>Documentos para analise</h2>
+                <h2>Documentos assinados para analise</h2>
                 <form action="professor-pendente.php" method="post">
                     <label for="filtro">Filtrar por:</label>
                     <select name="filtro" id="filtro">
