@@ -54,7 +54,7 @@
                 <h2>Documentos assinados aprovados: </h2>
                 <?php
                 if (!isset($_POST['filtro'])) {
-                    echo '          <form action="professor-avaliados.php" method="post">';
+                    echo '          <form action="professor-analisado-assinado.php" method="post">';
                     echo '              <label for="filtro">Filtrar por:</label>';
                     echo '              <select name="filtro" id="filtro">';
                     echo '                  <option value="null" selected>Selecione uma opção</option>';
@@ -70,7 +70,7 @@
                     echo '          </form>';
                 
                 } elseif ($_POST['filtro'] == 'null') {
-                    echo '          <form action="professor-avaliados.php" method="post">';
+                    echo '          <form action="professor-analisado-assinado.php" method="post">';
                     echo '              <label for="filtro">Filtrar por:</label>';
                     echo '              <select name="filtro" id="filtro">';
                     echo '                  <option value="null" selected>Selecione uma opção</option>';
@@ -86,7 +86,7 @@
                     echo '          </form>';
                 
                 } elseif ($_POST['filtro'] == 'termocompromisso.pdf') {
-                    echo ' <form action="professor-avaliados.php" method="post">';
+                    echo ' <form action="professor-analisado-assinado.php" method="post">';
                     echo '     <label for="filtro">Filtrar por:</label>';
                     echo '     <select name="filtro" id="filtro">';
                     echo '         <option value="null" >Selecione uma opção</option>';
@@ -102,7 +102,7 @@
                     echo ' </form>';
 
                 } elseif ($_POST['filtro'] == 'relatoriofinal.pdf') {
-                    echo ' <form action="professor-avaliados.php" method="post">';
+                    echo ' <form action="professor-analisado-assinado.php" method="post">';
                     echo '      <label for="filtro">Filtrar por:</label>';
                     echo '      <select name="filtro" id="filtro">';
                     echo '          <option value="null" >Selecione uma opção</option>';
@@ -118,7 +118,7 @@
                     echo '  </form>';
 
                 } elseif ($_POST['filtro'] == 'relatorioparcial.pdf') {
-                    echo ' <form action="professor-avaliados.php" method="post">';
+                    echo ' <form action="professor-analisado-assinado.php" method="post">';
                     echo '     <label for="filtro">Filtrar por:</label>';
                     echo '     <select name="filtro" id="filtro">';
                     echo '          <option value="null" >Selecione uma opção</option>';
@@ -134,7 +134,7 @@
                     echo ' </form>';
 
                 } elseif ($_POST['filtro'] == 'termorescisão.pdf') {
-                    echo '<form action="professor-avaliados.php" method="post">';
+                    echo '<form action="professor-analisado-assinado.php" method="post">';
                     echo '    <label for="filtro">Filtrar por:</label>';
                     echo '    <select name="filtro" id="filtro">';
                     echo '        <option value="null">Selecione uma opção</option>';
@@ -150,7 +150,7 @@
                     echo '</form>';
 
                 } elseif ($_POST['filtro'] == 'sem') {
-                    echo ' <form action="professor-avaliados.php" method="post">';
+                    echo ' <form action="professor-analisado-assinado.php" method="post">';
                     echo '  <label for="filtro">Filtrar por:</label>';
                     echo '  <select name="filtro" id="filtro">';
                     echo '      <option value="null" >Selecione uma opção</option>';

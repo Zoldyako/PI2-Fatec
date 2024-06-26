@@ -51,7 +51,7 @@
         <div class="container-content">
             <div class="content">
                 <h2>Documentos assinados para analise</h2>
-                <form action="professor-pendente.php" method="post">
+                <form action="professor-pendente-assinado.php" method="post">
                     <label for="filtro">Filtrar por:</label>
                     <select name="filtro" id="filtro">
                         <option value="null" selected>Selecione uma opção</option>
