@@ -54,7 +54,6 @@
 
         <div class="container-content">
             <div class="content">
-                
                 <div class="instrucoes">
                     <h2>Passo a passo:</h2>
                     <ol>

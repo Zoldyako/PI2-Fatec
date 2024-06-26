@@ -14,8 +14,9 @@ html, body {
     height: 100vh;
     font-family: 'Roboto';
     background-color: rgb(241, 230, 230);
-    overflow:hidden;
+    overflow: hidden;
 }
+
 
 
 main {
@@ -34,7 +35,7 @@ main h1 {
 
 
 .container-content {
-    overflow:scroll ;
+    
     width: 100%;
 }
 
