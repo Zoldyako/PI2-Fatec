@@ -27,7 +27,7 @@
             // Executa a instrução preparada
             if ($stmt->execute()) {
                 echo "<script>window.alert('Documento enviado com sucesso!')</script>";
-                echo "<script>window.location.href = 'alunoperfil.php'</script>";
+                echo "<script>window.location.href = '../views/alunos/aluno-perfil.php'</script>";
             } else {
                 echo "Erro ao enviar o documento.";
             }
@@ -54,9 +54,10 @@
             // Executa a instrução preparada
             if ($stmt->execute()) {
                 echo "<script>window.alert('Documento enviado com sucesso!')</script>";
-                echo "<script>window.location.href = 'alunoperfil.php'</script>";
+                echo "<script>window.location.href = '../views/alunos/aluno-perfil.php'</script>";
             } else {
                 echo "Erro ao enviar o documento.";
+                
             }
         }
         }
