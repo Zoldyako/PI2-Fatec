@@ -82,7 +82,7 @@
                     echo '              </select>   ';
                     echo '              <label for="nomefiltro">Filtrar por nome:</label>';
                     echo '              <input type="text" name="nomefiltro" id="nomefiltro">';
-                    echo '              <input type="submit" value="Filtrar">';
+                    echo '              <input type="submit" value="Filtrar" id="filtrar-btn">';
                     echo '          </form>';
                 
                 } elseif ($_POST['filtro'] == 'termocompromisso.pdf') {
@@ -98,7 +98,7 @@
                     echo '     </select>   ';
                     echo '     <label for="nomefiltro">Filtrar por nome:</label>';
                     echo '     <input type="text" name="nomefiltro" id="nomefiltro">';
-                    echo '     <input type="submit" value="Filtrar">';
+                    echo '     <input type="submit" value="Filtrar" id="filtrar-btn">';
                     echo ' </form>';
 
                 } elseif ($_POST['filtro'] == 'relatoriofinal.pdf') {
@@ -114,7 +114,7 @@
                     echo '      </select>   ';
                     echo '      <label for="nomefiltro">Filtrar por nome:</label>';
                     echo '      <input type="text" name="nomefiltro" id="nomefiltro">';
-                    echo '      <input type="submit" value="Filtrar">';
+                    echo '      <input type="submit" value="Filtrar" id="filtrar-btn">';
                     echo '  </form>';
 
                 } elseif ($_POST['filtro'] == 'relatorioparcial.pdf') {
@@ -130,7 +130,7 @@
                     echo '     </select>   ';
                     echo '     <label for="nomefiltro">Filtrar por nome:</label>';
                     echo '     <input type="text" name="nomefiltro" id="nomefiltro">';
-                    echo '     <input type="submit" value="Filtrar">';
+                    echo '     <input type="submit" value="Filtrar" id="filtrar-btn">';
                     echo ' </form>';
 
                 } elseif ($_POST['filtro'] == 'termorescisão.pdf') {
@@ -146,7 +146,7 @@
                     echo '    </select>   ';
                     echo '    <label for="nomefiltro">Filtrar por nome:</label>';
                     echo '    <input type="text" name="nomefiltro" id="nomefiltro">';
-                    echo '    <input type="submit" value="Filtrar">';
+                    echo '    <input type="submit" value="Filtrar" id="filtrar-btn">';
                     echo '</form>';
 
                 } elseif ($_POST['filtro'] == 'sem') {
@@ -162,7 +162,7 @@
                     echo '  </select>   ';
                     echo '  <label for="nomefiltro">Filtrar por nome:</label>';
                     echo '  <input type="text" name="nomefiltro" id="nomefiltro">';
-                    echo '  <input type="submit" value="Filtrar">';
+                    echo '  <input type="submit" value="Filtrar" id="filtrar-btn">';
                     echo ' </form>';
                 } ?>
                 <?php
