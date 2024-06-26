@@ -35,8 +35,8 @@ main h1 {
 
 
 .container-content {
-    
-    width: 100%;
+    overflow: scroll;
+    width: 98%;
 }
 
 

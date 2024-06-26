@@ -22,7 +22,7 @@ select {
 }
 
 
-#btn-filtrar {
+#btn-doc, #btn-filtro{
     background-color: rgb(180 50 50);
     color: white;
 }
