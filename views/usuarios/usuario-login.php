@@ -32,6 +32,11 @@
       //caso a senha não seja valida    
     } 
     
-    else { header("Location:../usuario/usuario-erro.php"); }
+    else { 
+        echo "<script>alert('Usuário ou senha inválidos')
+        window.location.href = '../../index.php'
+        </script>";
+       
+     }
 
 ?>
