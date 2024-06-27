@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../../estilo/form/formOR.css">
     <title>Document</title>
 </head>
-<body>  
+<body style="overflow:scroll">  
     <?php 
         include "../../classes/Conexao.php";
 

@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../../estilo/form/formONR.css">
     <title>Document</title>
 </head>
-<body>  
+<body style="overflow:scroll">  
     <?php include "../../classes/Conexao.php";
 
         $sql = "SELECT * 
@@ -731,13 +731,14 @@ imagem1.onload = verificarCarregamento;
 imagem2.onload = verificarCarregamento;
 
 // Defina os src após atribuir onload handlers
-imagem1.src = "../form/marcadagua1.png";
-imagem2.src = "../form/marcadagua2.png";
+imagem1.src = "marcadagua1.png";
+imagem2.src = "marcadagua2.png";
 
 
 
 document.getElementById("formulario").submit();
         }
+        
     </script>
 </body>
 </html>
